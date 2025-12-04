@@ -308,7 +308,9 @@ Train models to:
 - Explain security flaws and mitigations
 - Provide defense-in-depth strategies
 
-**Recommended Models**: GPT-4, Claude 3, Llama 3, Mistral, Code Llama
+**Recommended Open-Weights Models**:
+- **Code-Specialized**: Qwen 2.5 Coder, DeepSeek Coder, Code Llama, StarCoder 2
+- **General Purpose**: Llama 3/3.1, Qwen 2.5, Mistral, OLMo 2, NVIDIA Nemotron
 
 ### Security Training and Education
 - **Corporate Training** – Teach developers secure coding practices

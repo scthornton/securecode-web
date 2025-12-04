@@ -1,4 +1,4 @@
-# SecureCode v2.0: A Production-Grade Dataset for Training Security-Aware Code Generation Models
+# OWASP-CVE-Dialogues: A Production-Grade Dataset for Training Security-Aware Code Generation Models
 
 **Academic Paper Outline**
 
@@ -15,7 +15,7 @@
 
 **Estimated Length**: 12-14 pages (conference format)
 
-**Authors**: Scott Thornton, perfecXion.ai Research Team
+**Authors**: Scott Thornton, Scott Thornton
 
 ---
 
@@ -23,9 +23,9 @@
 
 The rapid advancement of large language models (LLMs) has enabled automated code generation at scale, yet these models frequently produce insecure code that introduces vulnerabilities into production systems. Existing secure coding datasets suffer from limited scale, poor real-world grounding, inconsistent formatting, and lack of operational security context. 
 
-We present **SecureCode v2.0**, an enterprise-grade dataset of 1,209 security-focused coding examples designed specifically for training LLMs on secure development practices. Our dataset achieves 100% compliance with strict quality standards through systematic validation, ensuring every example includes: (1) real-world incident grounding with CVE references, (2) both vulnerable and secure implementations, (3) concrete attack demonstrations, and (4) defense-in-depth operational guidance.
+We present **OWASP-CVE-Dialogues**, an enterprise-grade dataset of 1,209 security-focused coding examples designed specifically for training LLMs on secure development practices. Our dataset achieves 100% compliance with strict quality standards through systematic validation, ensuring every example includes: (1) real-world incident grounding with CVE references, (2) both vulnerable and secure implementations, (3) concrete attack demonstrations, and (4) defense-in-depth operational guidance.
 
-SecureCode v2.0 provides comprehensive coverage across 11 OWASP Top 10 2021 categories and 10 programming languages, with balanced severity distribution (66% CRITICAL, 32% HIGH, 2% MEDIUM). Each example follows a standardized 4-turn conversational structure that mirrors realistic developer-AI interactions. We empirically demonstrate that models fine-tuned on SecureCode v2.0 achieve 23.7% higher secure code generation rates and 31.2% better vulnerability detection compared to base models, while maintaining code functionality.
+OWASP-CVE-Dialogues provides comprehensive coverage across 11 OWASP Top 10 2021 categories and 10 programming languages, with balanced severity distribution (66% CRITICAL, 32% HIGH, 2% MEDIUM). Each example follows a standardized 4-turn conversational structure that mirrors realistic developer-AI interactions. We empirically demonstrate that models fine-tuned on OWASP-CVE-Dialogues achieve 23.7% higher secure code generation rates and 31.2% better vulnerability detection compared to base models, while maintaining code functionality.
 
 Our contributions include: (1) a rigorously validated dataset with 100% quality compliance, (2) automated validation framework for ensuring dataset consistency, (3) empirical analysis of model performance improvements, and (4) open-source release of data and tooling to advance secure AI-assisted development.
 
@@ -48,7 +48,7 @@ Our contributions include: (1) a rigorously validated dataset with 100% quality 
 
 ### 1.2 Our Solution
 
-**SecureCode v2.0 Design Principles**:
+**OWASP-CVE-Dialogues Design Principles**:
 - **Real-World Grounded**: Every example tied to documented CVE or security incident
 - **Production Quality**: 100% validated against comprehensive quality standards
 - **Conversational Format**: Mirrors actual developer-AI interactions
@@ -99,7 +99,7 @@ Section 7: Conclusion
 | Juliet Test Suite [2017] | 86K | 2 | Limited | 0% | Synthetic |
 | SARD [2021] | 170K | 4 | None | <5% | Code-only |
 | Draper VDISC [2018] | 1.27M | 1 | None | Unknown | Code-only |
-| **SecureCode v2.0** | **1,209** | **10** | **Complete** | **100%** | **Conversational** |
+| **OWASP-CVE-Dialogues** | **1,209** | **10** | **Complete** | **100%** | **Conversational** |
 
 **Key Differentiators**:
 - Only dataset with 100% real-world grounding
@@ -122,7 +122,7 @@ Section 7: Conclusion
 - Model extraction and stealing [Carlini et al., 2021]
 - Adversarial examples in code [Yefet et al., 2020]
 
-**Connection**: SecureCode v2.0 includes AI/ML security category
+**Connection**: OWASP-CVE-Dialogues includes AI/ML security category
 
 ---
 
@@ -153,7 +153,7 @@ Section 7: Conclusion
 ### 3.2 Data Collection Process
 
 **Phase 1: Incident Mining**
-- CVE database analysis (2018-2024)
+- CVE database analysis (2018-2025)
 - OWASP Top 10 documentation
 - Security breach reports
 - Bug bounty disclosures
@@ -256,9 +256,9 @@ Section 7: Conclusion
 
 **Models Evaluated**:
 - GPT-3.5-turbo (baseline)
-- GPT-3.5-turbo-fine-tuned (SecureCode v2.0)
+- GPT-3.5-turbo-fine-tuned (OWASP-CVE-Dialogues)
 - Code Llama 13B (baseline)
-- Code Llama 13B-fine-tuned (SecureCode v2.0)
+- Code Llama 13B-fine-tuned (OWASP-CVE-Dialogues)
 
 **Evaluation Metrics**:
 1. **Secure Code Generation Rate**: % of generated code without CWE vulnerabilities
@@ -273,7 +273,7 @@ Section 7: Conclusion
 
 ### 5.2 Results
 
-**RQ1: Does fine-tuning on SecureCode v2.0 improve secure code generation?**
+**RQ1: Does fine-tuning on OWASP-CVE-Dialogues improve secure code generation?**
 
 | Model | Baseline | Fine-tuned | Improvement |
 |-------|----------|------------|-------------|
@@ -362,7 +362,7 @@ Section 7: Conclusion
 - **Future Work**: Expand to Swift, Zig, Elixir
 
 **L2: Temporal Bias**
-- CVE data primarily from 2018-2024
+- CVE data primarily from 2018-2025
 - May not capture emerging attack patterns
 - **Mitigation**: Continuous dataset updates
 
@@ -422,14 +422,14 @@ Section 7: Conclusion
 
 ## 8. Conclusion
 
-We presented **SecureCode v2.0**, a production-grade dataset of 1,209 security-focused coding examples achieving 100% quality compliance. Through rigorous validation and real-world grounding, our dataset enables significant improvements in LLM secure code generation (23.7% increase) and vulnerability detection (31.2% improvement) without compromising functionality.
+We presented **OWASP-CVE-Dialogues**, a production-grade dataset of 1,209 security-focused coding examples achieving 100% quality compliance. Through rigorous validation and real-world grounding, our dataset enables significant improvements in LLM secure code generation (23.7% increase) and vulnerability detection (31.2% improvement) without compromising functionality.
 
-Our contributions advance the state-of-the-art in AI-assisted secure development by providing the first comprehensively validated, conversational, operationally-complete secure coding dataset. The open-source release of data, validation framework, and fine-tuning artifacts enables reproducible research and practical deployment of security-aware AI coding assistants.
+Our contributions advance the advanced in AI-assisted secure development by providing the first comprehensively validated, conversational, operationally-complete secure coding dataset. The open-source release of data, validation framework, and fine-tuning artifacts enables reproducible research and practical deployment of security-aware AI coding assistants.
 
 **Availability**: Dataset, code, and documentation available at:
-- GitHub: https://github.com/perfecxion/securecode-v2
-- HuggingFace: https://huggingface.co/datasets/perfecxion/securecode-v2
-- Technical Report: https://perfecxion.ai/research/securecode-v2
+- GitHub: https://github.com/scthornton/OWASP-CVE-Dialogues
+- HuggingFace: https://huggingface.co/datasets/scthornton/OWASP-CVE-Dialogues
+- Technical Report: https://perfecxion.ai/research/OWASP-CVE-Dialogues
 
 ---
 
@@ -441,7 +441,7 @@ Our contributions advance the state-of-the-art in AI-assisted secure development
 
 [3] OWASP Foundation. (2021). "OWASP Top 10 2021."
 
-[4] MITRE Corporation. (2024). "Common Weakness Enumeration (CWE)."
+[4] MITRE Corporation. (2025). "Common Weakness Enumeration (CWE)."
 
 [5] Chen, M., et al. (2021). "Evaluating Large Language Models Trained on Code." arXiv.
 

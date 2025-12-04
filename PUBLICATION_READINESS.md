@@ -1,4 +1,4 @@
-# SecureCode v2.0 - Publication Readiness Report
+# OWASP-CVE-Dialogues - Publication Readiness Report
 
 **Date**: 2025-12-03  
 **Status**: ✅ **READY FOR PUBLICATION**
@@ -7,7 +7,7 @@
 
 ## Executive Summary
 
-SecureCode v2.0 is now **publication-ready** for both **GitHub** and **HuggingFace**, with comprehensive documentation, 100% quality compliance, and a complete academic paper outline for submission to top-tier security conferences.
+OWASP-CVE-Dialogues is now **publication-ready** for both **GitHub** and **HuggingFace**, with comprehensive documentation, 100% quality compliance, and a complete academic paper outline for submission to top-tier security conferences.
 
 ---
 
@@ -102,7 +102,7 @@ SecureCode v2.0 is now **publication-ready** for both **GitHub** and **HuggingFa
 ## Directory Structure
 
 ```
-securecode-v2/
+OWASP-CVE-Dialogues/
 ├── README.md                           # ✅ Comprehensive main README
 ├── LICENSE                             # ✅ Apache 2.0
 ├── CITATION.bib                        # ✅ Academic citations
@@ -183,20 +183,20 @@ securecode-v2/
    ```bash
    git init
    git add .
-   git commit -m "Initial release: SecureCode v2.0"
+   git commit -m "Initial release: OWASP-CVE-Dialogues"
    git branch -M main
-   git remote add origin https://github.com/perfecxion/securecode-v2.git
+   git remote add origin https://github.com/scthornton/OWASP-CVE-Dialogues.git
    git push -u origin main
    ```
 
 2. **Tag Release**
    ```bash
-   git tag -a v2.0.0 -m "SecureCode v2.0 - Production Release"
+   git tag -a v2.0.0 -m "OWASP-CVE-Dialogues - Production Release"
    git push origin v2.0.0
    ```
 
 3. **Upload to HuggingFace**
-   - Create dataset repository: `perfecxion/securecode-v2`
+   - Create dataset repository: `scthornton/OWASP-CVE-Dialogues`
    - Upload consolidated/ directory
    - Copy README.md as dataset card
    - Add dataset loading script (optional)
@@ -215,7 +215,7 @@ securecode-v2/
    - Submit to Papers with Code
 
 6. **Blog Post**
-   - Write technical blog post for perfecXion.ai
+   - Write technical blog post for 
    - Cross-post to Medium/Dev.to
    - Include usage examples and case studies
 
@@ -262,7 +262,7 @@ securecode-v2/
 - Needs empirical results for completion
 
 ### Overall Grade: **A+**
-**SecureCode v2.0 is publication-ready and represents a significant contribution to secure AI-assisted development research.**
+**OWASP-CVE-Dialogues is publication-ready and represents a significant contribution to secure AI-assisted development research.**
 
 ---
 
@@ -324,7 +324,7 @@ securecode-v2/
 
 ## Conclusion
 
-**SecureCode v2.0 is EXCELLENT and READY FOR PUBLICATION.**
+**OWASP-CVE-Dialogues is EXCELLENT and READY FOR PUBLICATION.**
 
 The dataset, documentation, and supporting materials meet or exceed industry and academic standards. The project is positioned for significant impact in the secure AI-assisted development community.
 

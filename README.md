@@ -1,4 +1,4 @@
-# SecureCode v2.0
+# OWASP-CVE-Dialogues
 
 **A Production-Grade Secure Coding Dataset for AI Model Training**
 
@@ -7,7 +7,7 @@
 [![Compliance](https://img.shields.io/badge/CONTRIBUTING.md-100%25-brightgreen)](./FINAL_COMPLIANCE_REPORT.md)
 [![OWASP](https://img.shields.io/badge/OWASP%20Top%2010-2021-orange)](https://owasp.org/Top10/)
 
-SecureCode v2.0 is an enterprise-grade, production-ready dataset designed for fine-tuning large language models on secure coding practices. Created by security researchers at perfecXion.ai, this dataset provides real-world grounded examples across 11 OWASP Top 10 categories and 10 programming languages.
+OWASP-CVE-Dialogues is an enterprise-grade, production-ready dataset designed for fine-tuning large language models on secure coding practices. Created by security researchers, this dataset provides real-world grounded examples across 11 OWASP Top 10 categories and 10 programming languages.
 
 ---
 
@@ -66,7 +66,7 @@ Each example follows a strict 4-turn conversation structure:
 ### File Structure
 
 \`\`\`
-securecode-v2/
+OWASP-CVE-Dialogues/
 ├── consolidated/           # Production-ready splits
 │   ├── train.jsonl        # 841 examples (70%)
 │   ├── val.jsonl          # 175 examples (15%)
@@ -114,7 +114,7 @@ securecode-v2/
 from datasets import load_dataset
 
 # Load the entire dataset
-dataset = load_dataset("perfecxion/securecode-v2")
+dataset = load_dataset("scthornton/OWASP-CVE-Dialogues")
 
 # Access splits
 train_data = dataset["train"]
@@ -270,7 +270,7 @@ Train models to:
 
 ### Validation Process
 
-Every example in SecureCode v2.0 undergoes rigorous validation:
+Every example in OWASP-CVE-Dialogues undergoes rigorous validation:
 
 ✅ **Four-Turn Structure**: Enforced conversation format
 ✅ **Real-World Grounding**: CVE or documented incident reference
@@ -304,7 +304,7 @@ We welcome contributions! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guideline
 
 ### Reporting Issues
 
-- **Security Vulnerabilities**: Please report privately to security@perfecxion.ai
+- **Security Vulnerabilities**: Please report privately
 - **Data Quality Issues**: Open a GitHub issue with example ID
 - **Feature Requests**: Discuss in GitHub Discussions
 
@@ -312,15 +312,15 @@ We welcome contributions! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guideline
 
 ## Citation
 
-If you use SecureCode v2.0 in your research or applications, please cite:
+If you use OWASP-CVE-Dialogues in your research or applications, please cite:
 
 \`\`\`bibtex
 @dataset{securecode_v2_2024,
-  title={SecureCode v2.0: A Production-Grade Secure Coding Dataset},
-  author={Thornton, Scott and perfecXion.ai Research Team},
-  year={2024},
-  publisher={perfecXion.ai},
-  url={https://github.com/perfecxion/securecode-v2},
+  title={OWASP-CVE-Dialogues: A Production-Grade Secure Coding Dataset},
+  author={Thornton, Scott and  Research Team},
+  year={2025},
+  publisher={Scott Thornton},
+  url={https://github.com/scthornton/OWASP-CVE-Dialogues},
   note={1,209 examples across 11 OWASP categories and 10 languages}
 }
 \`\`\`
@@ -337,13 +337,13 @@ This dataset is released under the [Apache License 2.0](./LICENSE).
 - Corporate training programs
 - Academic research
 
-**Attribution Required** - Please cite SecureCode v2.0 in derivative works.
+**Attribution Required** - Please cite OWASP-CVE-Dialogues in derivative works.
 
 ---
 
 ## Changelog
 
-### v2.0 (2024-12-03)
+### v2.0 (2025-12-03)
 - **100% CONTRIBUTING.md Compliance** achieved
 - 1,209 total examples (841 train / 175 val / 193 test)
 - All 11 OWASP Top 10 2021 categories covered
@@ -351,7 +351,7 @@ This dataset is released under the [Apache License 2.0](./LICENSE).
 - Defense-in-depth operational security content added
 - Real-world CVE grounding for all examples
 
-### v1.0 (2024-11-15)
+### v1.0 (2025-11-15)
 - Initial release with 1,013 examples
 - 9 OWASP categories, 8 programming languages
 
@@ -359,19 +359,13 @@ This dataset is released under the [Apache License 2.0](./LICENSE).
 
 ## Acknowledgments
 
-- **perfecXion.ai Research Team** - Dataset creation and curation
+- **Research Team** - Dataset creation and curation
 - **OWASP Foundation** - Security category taxonomy
 - **MITRE Corporation** - CWE classifications
 - **Security Research Community** - CVE data and incident documentation
 
 ---
 
-## Contact
-
-- **Website**: [perfecxion.ai](https://perfecxion.ai)
-- **Email**: research@perfecxion.ai
-- **GitHub**: [@perfecxion](https://github.com/perfecxion)
-- **Twitter**: [@perfecxion_ai](https://twitter.com/perfecxion_ai)
 
 ---
 
@@ -380,10 +374,9 @@ This dataset is released under the [Apache License 2.0](./LICENSE).
 - **OWASP Top 10 2021**: https://owasp.org/Top10/
 - **CWE Database**: https://cwe.mitre.org/
 - **CVE Database**: https://cve.mitre.org/
-- **perfecXion.ai Blog**: https://perfecxion.ai/blog
 
 ---
 
 **Built with security in mind. Designed for real-world impact.**
 
-*SecureCode v2.0 - Production-Grade Secure Coding for AI*
+*OWASP-CVE-Dialogues - Production-Grade Secure Coding for AI*

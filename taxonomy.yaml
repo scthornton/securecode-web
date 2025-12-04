@@ -1,0 +1,586 @@
+# SecureCode v2.0 Vulnerability Taxonomy
+# Maps vulnerability categories to OWASP 2021, CWE, severity, and target languages
+
+categories:
+
+  # OWASP A01: Broken Access Control (150 examples)
+  broken_access_control:
+    owasp: "A01:2021-Broken Access Control"
+    target_examples: 150
+    severity: CRITICAL
+    subcategories:
+      - name: "idor"
+        display: "Insecure Direct Object References (IDOR)"
+        cwe: "CWE-639"
+        examples: 30
+        languages: [python, javascript, java, php, ruby, go]
+        real_world:
+          - incident: "2023 Booking.com IDOR - 10M+ reservations exposed"
+            cve: null
+            impact: "PII exposure, $2.1M GDPR fine"
+
+      - name: "path_traversal"
+        display: "Path Traversal / Directory Traversal"
+        cwe: "CWE-22"
+        examples: 25
+        languages: [python, java, php, javascript, go, c]
+        real_world:
+          - incident: "2023 MOVEit Transfer path traversal"
+            cve: "CVE-2023-36934"
+            impact: "Arbitrary file access, chained with SQL injection"
+
+      - name: "missing_auth"
+        display: "Missing Function-Level Access Control"
+        cwe: "CWE-285"
+        examples: 30
+        languages: [javascript, python, java, go, ruby, c#]
+        real_world:
+          - incident: "2024 Okta API access control bypass"
+            cve: "CVE-2024-0204"
+            impact: "Admin privilege escalation"
+
+      - name: "cors_misconfiguration"
+        display: "CORS Misconfiguration"
+        cwe: "CWE-346"
+        examples: 20
+        languages: [javascript, python, java, go, ruby]
+        real_world:
+          - incident: "2023 Financial services CORS vulnerability"
+            cve: null
+            impact: "Cross-origin data theft, $18M fraud losses"
+
+      - name: "forceful_browsing"
+        display: "Forceful Browsing / Predictable Resource Location"
+        cwe: "CWE-425"
+        examples: 20
+        languages: [javascript, python, php, java, ruby]
+
+      - name: "privilege_escalation"
+        display: "Vertical/Horizontal Privilege Escalation"
+        cwe: "CWE-269"
+        examples: 25
+        languages: [python, java, c#, go, javascript]
+
+  # OWASP A02: Cryptographic Failures (120 examples)
+  cryptographic_failures:
+    owasp: "A02:2021-Cryptographic Failures"
+    target_examples: 120
+    severity: CRITICAL
+    subcategories:
+      - name: "weak_crypto"
+        display: "Weak Cryptographic Algorithms"
+        cwe: "CWE-327"
+        examples: 25
+        languages: [python, java, javascript, c#, go, c++]
+        real_world:
+          - incident: "2023 LastPass breach - insufficient PBKDF2 iterations"
+            cve: null
+            impact: "$53M in crypto stolen, master passwords cracked"
+
+      - name: "hardcoded_secrets"
+        display: "Hardcoded Credentials/API Keys"
+        cwe: "CWE-798"
+        examples: 30
+        languages: [python, javascript, java, go, ruby, php, c#, swift]
+        real_world:
+          - incident: "2024 Toyota source code leak - hardcoded keys"
+            cve: null
+            impact: "10 years of customer data exposed, 2.15M records"
+
+      - name: "insecure_random"
+        display: "Insufficient Randomness"
+        cwe: "CWE-330"
+        examples: 15
+        languages: [python, javascript, java, c, c++, go]
+
+      - name: "weak_password_storage"
+        display: "Weak Password Hashing"
+        cwe: "CWE-916"
+        examples: 20
+        languages: [python, php, java, c#, ruby, javascript]
+
+      - name: "unencrypted_data"
+        display: "Transmission of Sensitive Data in Cleartext"
+        cwe: "CWE-319"
+        examples: 15
+        languages: [python, java, javascript, c, go]
+
+      - name: "improper_cert_validation"
+        display: "Improper Certificate Validation"
+        cwe: "CWE-295"
+        examples: 15
+        languages: [python, java, javascript, go, c#, swift]
+
+  # OWASP A03: Injection (140 examples)
+  injection:
+    owasp: "A03:2021-Injection"
+    target_examples: 140
+    severity: CRITICAL
+    subcategories:
+      - name: "sql_injection"
+        display: "SQL Injection"
+        cwe: "CWE-89"
+        examples: 35
+        languages: [python, php, java, javascript, c#, ruby]
+        real_world:
+          - incident: "2023 MOVEit Transfer SQL injection"
+            cve: "CVE-2023-34362"
+            impact: "$9.2B damages, 2,100+ orgs, 77M+ records"
+
+      - name: "command_injection"
+        display: "OS Command Injection"
+        cwe: "CWE-78"
+        examples: 25
+        languages: [python, php, java, javascript, ruby, go]
+        real_world:
+          - incident: "2023 Barracuda ESG zero-day command injection"
+            cve: "CVE-2023-2868"
+            impact: "Chinese espionage campaign, global targeting"
+
+      - name: "code_injection"
+        display: "Code Injection (eval, exec)"
+        cwe: "CWE-94"
+        examples: 25
+        languages: [python, javascript, php, ruby]
+
+      - name: "ldap_injection"
+        display: "LDAP Injection"
+        cwe: "CWE-90"
+        examples: 10
+        languages: [java, python, c#, php]
+
+      - name: "xml_injection"
+        display: "XML/XXE Injection"
+        cwe: "CWE-611"
+        examples: 15
+        languages: [java, python, c#, php, javascript]
+
+      - name: "nosql_injection"
+        display: "NoSQL Injection"
+        cwe: "CWE-943"
+        examples: 15
+        languages: [javascript, python, java, php]
+
+      - name: "template_injection"
+        display: "Server-Side Template Injection (SSTI)"
+        cwe: "CWE-1336"
+        examples: 15
+        languages: [python, javascript, java, ruby, php]
+
+  # OWASP A04: Insecure Design (80 examples)
+  insecure_design:
+    owasp: "A04:2021-Insecure Design"
+    target_examples: 80
+    severity: HIGH
+    subcategories:
+      - name: "missing_rate_limiting"
+        display: "Missing Rate Limiting"
+        cwe: "CWE-770"
+        examples: 20
+        languages: [python, javascript, go, java, ruby]
+
+      - name: "insecure_workflow"
+        display: "Insecure Business Logic"
+        cwe: "CWE-840"
+        examples: 20
+        languages: [python, javascript, java, go]
+        real_world:
+          - incident: "2023 DraftKings race condition - negative balance exploit"
+            cve: null
+            impact: "$300K withdrawn before detection"
+
+      - name: "trust_boundary_violation"
+        display: "Trust Boundary Violations"
+        cwe: "CWE-501"
+        examples: 15
+        languages: [java, c#, python, javascript]
+
+      - name: "insufficient_anti_automation"
+        display: "Insufficient Anti-Automation"
+        cwe: "CWE-799"
+        examples: 15
+        languages: [python, javascript, php, java]
+
+      - name: "improper_state_management"
+        display: "Improper State Management"
+        cwe: "CWE-362"
+        examples: 10
+        languages: [java, python, c#, go]
+
+  # OWASP A05: Security Misconfiguration (100 examples)
+  security_misconfiguration:
+    owasp: "A05:2021-Security Misconfiguration"
+    target_examples: 100
+    severity: HIGH
+    subcategories:
+      - name: "default_credentials"
+        display: "Default Credentials"
+        cwe: "CWE-1188"
+        examples: 15
+        languages: [python, java, javascript, php, go]
+
+      - name: "debug_mode_enabled"
+        display: "Debug Features Enabled in Production"
+        cwe: "CWE-489"
+        examples: 20
+        languages: [python, javascript, java, ruby, php, c#]
+
+      - name: "verbose_errors"
+        display: "Verbose Error Messages"
+        cwe: "CWE-209"
+        examples: 15
+        languages: [python, java, php, javascript, c#]
+
+      - name: "missing_security_headers"
+        display: "Missing Security Headers"
+        cwe: "CWE-1021"
+        examples: 20
+        languages: [javascript, python, java, php, ruby, go]
+
+      - name: "cloud_storage_exposure"
+        display: "Cloud Storage Exposure (S3, Azure Blob)"
+        cwe: "CWE-668"
+        examples: 15
+        languages: [python, javascript, java, go]
+        real_world:
+          - incident: "2024 Microsoft AI research S3 bucket exposure"
+            cve: null
+            impact: "38TB training data exposed, internal credentials leaked"
+
+      - name: "unsafe_deserialization_config"
+        display: "Unsafe Deserialization Configuration"
+        cwe: "CWE-502"
+        examples: 15
+        languages: [java, python, php, ruby, c#]
+
+  # OWASP A06: Vulnerable and Outdated Components (60 examples)
+  vulnerable_components:
+    owasp: "A06:2021-Vulnerable and Outdated Components"
+    target_examples: 60
+    severity: MEDIUM
+    subcategories:
+      - name: "outdated_dependencies"
+        display: "Outdated Dependencies with Known CVEs"
+        cwe: "CWE-1035"
+        examples: 20
+        languages: [python, javascript, java, ruby, php, go]
+        real_world:
+          - incident: "2023 3CX supply chain attack - outdated Electron"
+            cve: "CVE-2023-29059"
+            impact: "600K+ organizations compromised via VoIP software"
+
+      - name: "unpatched_frameworks"
+        display: "Unpatched Web Frameworks"
+        cwe: "CWE-937"
+        examples: 20
+        languages: [python, javascript, java, ruby, php]
+
+      - name: "transitive_vulnerabilities"
+        display: "Vulnerable Transitive Dependencies"
+        cwe: "CWE-1104"
+        examples: 20
+        languages: [javascript, python, java, go, ruby]
+
+  # OWASP A07: Identification and Authentication Failures (130 examples)
+  auth_failures:
+    owasp: "A07:2021-Identification and Authentication Failures"
+    target_examples: 130
+    severity: CRITICAL
+    subcategories:
+      - name: "weak_passwords"
+        display: "Weak Password Requirements"
+        cwe: "CWE-521"
+        examples: 20
+        languages: [python, javascript, java, php, c#, ruby]
+
+      - name: "credential_stuffing"
+        display: "Missing Credential Stuffing Protection"
+        cwe: "CWE-307"
+        examples: 20
+        languages: [python, javascript, java, php, go]
+
+      - name: "session_fixation"
+        display: "Session Fixation"
+        cwe: "CWE-384"
+        examples: 15
+        languages: [php, python, java, javascript, ruby]
+
+      - name: "jwt_vulnerabilities"
+        display: "JWT Implementation Flaws"
+        cwe: "CWE-347"
+        examples: 25
+        languages: [javascript, python, java, go, c#]
+        real_world:
+          - incident: "2024 Okta JWT validation bypass"
+            cve: "CVE-2024-0204"
+            impact: "Admin access via crafted tokens, 18K+ customers affected"
+
+      - name: "oauth_flaws"
+        display: "OAuth/OIDC Implementation Flaws"
+        cwe: "CWE-940"
+        examples: 20
+        languages: [javascript, python, java, go]
+
+      - name: "missing_mfa"
+        display: "Missing Multi-Factor Authentication"
+        cwe: "CWE-308"
+        examples: 15
+        languages: [python, javascript, java, go, c#]
+
+      - name: "insecure_session_management"
+        display: "Insecure Session Management"
+        cwe: "CWE-613"
+        examples: 15
+        languages: [python, php, java, javascript, ruby]
+
+  # OWASP A08: Software and Data Integrity Failures (70 examples)
+  integrity_failures:
+    owasp: "A08:2021-Software and Data Integrity Failures"
+    target_examples: 70
+    severity: HIGH
+    subcategories:
+      - name: "insecure_deserialization"
+        display: "Insecure Deserialization"
+        cwe: "CWE-502"
+        examples: 25
+        languages: [java, python, php, ruby, c#]
+        real_world:
+          - incident: "2023 Apache ActiveMQ RCE via deserialization"
+            cve: "CVE-2023-46604"
+            impact: "Ransomware deployment, critical infrastructure targeting"
+
+      - name: "unsigned_code"
+        display: "Unsigned/Unverified Code Execution"
+        cwe: "CWE-494"
+        examples: 15
+        languages: [python, javascript, java, c#, go]
+
+      - name: "missing_integrity_checks"
+        display: "Missing Subresource Integrity (SRI)"
+        cwe: "CWE-353"
+        examples: 15
+        languages: [javascript, python]
+
+      - name: "supply_chain_attack"
+        display: "Supply Chain Attack Vectors"
+        cwe: "CWE-1357"
+        examples: 15
+        languages: [javascript, python, java, go]
+
+  # OWASP A09: Security Logging and Monitoring Failures (50 examples)
+  logging_failures:
+    owasp: "A09:2021-Security Logging and Monitoring Failures"
+    target_examples: 50
+    severity: MEDIUM
+    subcategories:
+      - name: "missing_audit_logs"
+        display: "Missing Security Event Logging"
+        cwe: "CWE-778"
+        examples: 15
+        languages: [python, java, javascript, go, c#]
+
+      - name: "log_injection"
+        display: "Log Injection/Forging"
+        cwe: "CWE-117"
+        examples: 15
+        languages: [python, java, javascript, go, php]
+
+      - name: "sensitive_data_logging"
+        display: "Logging Sensitive Data"
+        cwe: "CWE-532"
+        examples: 10
+        languages: [python, java, javascript, c#, go]
+
+      - name: "inadequate_monitoring"
+        display: "Inadequate Security Monitoring"
+        cwe: "CWE-223"
+        examples: 10
+        languages: [python, javascript, java, go]
+
+  # OWASP A10: Server-Side Request Forgery (40 examples)
+  ssrf:
+    owasp: "A10:2021-Server-Side Request Forgery"
+    target_examples: 40
+    severity: MEDIUM
+    subcategories:
+      - name: "basic_ssrf"
+        display: "Server-Side Request Forgery"
+        cwe: "CWE-918"
+        examples: 25
+        languages: [python, javascript, java, php, go, ruby]
+        real_world:
+          - incident: "2024 Azure SSRF via metadata service"
+            cve: null
+            impact: "Instance credentials exposure, lateral movement"
+
+      - name: "dns_rebinding"
+        display: "DNS Rebinding Attacks"
+        cwe: "CWE-346"
+        examples: 15
+        languages: [python, javascript, java, go]
+
+  # Modern Cloud Security (50 examples)
+  cloud_security:
+    owasp: "Modern Threats"
+    target_examples: 50
+    severity: CRITICAL
+    subcategories:
+      - name: "aws_iam_misconfiguration"
+        display: "AWS IAM Overly Permissive Policies"
+        cwe: "CWE-732"
+        examples: 15
+        languages: [python, javascript, go, java]
+        real_world:
+          - incident: "2023 Capital One breach - SSRF + IAM misconfiguration"
+            cve: null
+            impact: "106M customer records, $190M settlement"
+
+      - name: "container_escape"
+        display: "Container Escape Vulnerabilities"
+        cwe: "CWE-250"
+        examples: 15
+        languages: [go, python, c]
+
+      - name: "kubernetes_misconfig"
+        display: "Kubernetes Security Misconfigurations"
+        cwe: "CWE-16"
+        examples: 10
+        languages: [yaml, go, python]
+
+      - name: "serverless_injection"
+        display: "Serverless Function Injection"
+        cwe: "CWE-94"
+        examples: 10
+        languages: [python, javascript, go]
+
+  # API Security (50 examples)
+  api_security:
+    owasp: "Modern Threats"
+    target_examples: 50
+    severity: HIGH
+    subcategories:
+      - name: "graphql_injection"
+        display: "GraphQL Injection/DoS"
+        cwe: "CWE-943"
+        examples: 15
+        languages: [javascript, python, java, go]
+
+      - name: "api_rate_limiting"
+        display: "API Rate Limiting Bypass"
+        cwe: "CWE-770"
+        examples: 15
+        languages: [python, javascript, go, java]
+
+      - name: "rest_api_abuse"
+        display: "REST API Mass Assignment/BOLA"
+        cwe: "CWE-915"
+        examples: 20
+        languages: [python, javascript, java, go, ruby]
+        real_world:
+          - incident: "2024 Peloton API BOLA - user data exposure"
+            cve: null
+            impact: "All user data accessible via account ID enumeration"
+
+  # AI/ML Security (50 examples)
+  ai_ml_security:
+    owasp: "Modern Threats"
+    target_examples: 50
+    severity: CRITICAL
+    subcategories:
+      - name: "prompt_injection"
+        display: "Prompt Injection Defenses"
+        cwe: "CWE-94"
+        examples: 15
+        languages: [python]
+        real_world:
+          - incident: "2024 Chevrolet chatbot jailbreak - car sales at $1"
+            cve: null
+            impact: "Reputation damage, prompt injection in production"
+
+      - name: "model_extraction"
+        display: "Model Extraction/Stealing Attacks"
+        cwe: "CWE-200"
+        examples: 10
+        languages: [python]
+
+      - name: "training_data_poisoning"
+        display: "Training Data Poisoning Detection"
+        cwe: "CWE-1336"
+        examples: 10
+        languages: [python]
+
+      - name: "adversarial_input"
+        display: "Adversarial Input Detection"
+        cwe: "CWE-20"
+        examples: 15
+        languages: [python]
+        real_world:
+          - incident: "2023 Stop sign adversarial patches - Tesla autopilot"
+            cve: null
+            impact: "Safety-critical misclassification"
+
+# Complexity tiers
+complexity_tiers:
+  simple:
+    percentage: 15
+    description: "Single vulnerability, obvious fix, beginner-friendly"
+    conversation_turns: "2-3"
+    example_count: 150
+
+  moderate:
+    percentage: 60
+    description: "Multiple security controls, realistic scenarios"
+    conversation_turns: "3-5"
+    example_count: 600
+
+  complex:
+    percentage: 20
+    description: "Chained vulnerabilities, architecture-level issues"
+    conversation_turns: "4-6"
+    example_count: 200
+
+  advanced:
+    percentage: 5
+    description: "Novel attack vectors, research-level defenses"
+    conversation_turns: "5-8"
+    example_count: 50
+
+# Real-world incident database
+# High-profile incidents to use for context
+incidents:
+  - name: "MOVEit Transfer SQL Injection"
+    year: 2023
+    cve: "CVE-2023-34362"
+    categories: [sql_injection, path_traversal]
+    impact: "$9.2B damages, 2,100+ organizations, 77M+ records exposed"
+    attacker: "Cl0p ransomware gang"
+
+  - name: "LastPass Master Password Breach"
+    year: 2023
+    cve: null
+    categories: [weak_crypto, weak_password_storage]
+    impact: "$53M in cryptocurrency stolen, master passwords cracked"
+
+  - name: "Capital One AWS SSRF + IAM Breach"
+    year: 2023
+    cve: null
+    categories: [ssrf, aws_iam_misconfiguration]
+    impact: "106M customer records, $190M regulatory settlement"
+
+  - name: "3CX Supply Chain Attack"
+    year: 2023
+    cve: "CVE-2023-29059"
+    categories: [supply_chain_attack, outdated_dependencies]
+    impact: "600K+ organizations compromised, North Korean APT"
+
+  - name: "Toyota Hardcoded Credentials"
+    year: 2024
+    cve: null
+    categories: [hardcoded_secrets]
+    impact: "2.15M records exposed, 10 years of data accessible"
+
+  - name: "Okta JWT Bypass"
+    year: 2024
+    cve: "CVE-2024-0204"
+    categories: [jwt_vulnerabilities, missing_auth]
+    impact: "Admin access via crafted tokens, 18K+ customers affected"

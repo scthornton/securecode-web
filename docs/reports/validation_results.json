@@ -1,0 +1,2709 @@
+{
+  "language_distribution": {
+    "programming_languages": {
+      "csharp": 56,
+      "java": 132,
+      "javascript": 168,
+      "python": 167,
+      "go": 110,
+      "php": 70,
+      "typescript": 52,
+      "kotlin": 15,
+      "ruby": 26,
+      "rust": 19
+    },
+    "frameworks": {},
+    "config_tools": {
+      "docker": 9,
+      "vue": 2,
+      "kubernetes": 12,
+      "angular": 2,
+      "react": 1
+    },
+    "categories": {
+      "injection": 125,
+      "ssrf": 31,
+      "broken_access_control": 125,
+      "security_misconfiguration": 93,
+      "auth_failures": 138,
+      "integrity_failures": 56,
+      "vulnerable_components": 59,
+      "insecure_design": 58,
+      "crypto_failures": 80,
+      "ai_ml_security": 35,
+      "logging_failures": 41
+    },
+    "total_examples": 841
+  },
+  "validation_summary": {
+    "total_examples": 20,
+    "valid_examples": 20,
+    "pass_rate": 1.0,
+    "total_code_blocks": 148,
+    "syntax_validated": 64,
+    "syntax_passed": 49
+  },
+  "detailed_results": [
+    {
+      "example_id": "authentication-000002",
+      "category": "auth_failures",
+      "subcategory": "authentication",
+      "language": "csharp",
+      "difficulty": "moderate",
+      "severity": "CRITICAL",
+      "cve": "CVE-2022-20798",
+      "code_blocks_found": 7,
+      "code_blocks_validated": [
+        {
+          "language_tag": "csharp",
+          "code_length": 1106,
+          "line_count": 37,
+          "syntax_valid": null,
+          "validation_message": "No validator for csharp",
+          "quality": {
+            "line_count": 37,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "text",
+          "code_length": 48,
+          "line_count": 5,
+          "syntax_valid": null,
+          "validation_message": "No validator for text",
+          "quality": {
+            "line_count": 5,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "csharp",
+          "code_length": 2322,
+          "line_count": 78,
+          "syntax_valid": null,
+          "validation_message": "No validator for csharp",
+          "quality": {
+            "line_count": 78,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "csharp",
+          "code_length": 6221,
+          "line_count": 165,
+          "syntax_valid": null,
+          "validation_message": "No validator for csharp",
+          "quality": {
+            "line_count": 165,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "csharp",
+          "code_length": 144,
+          "line_count": 3,
+          "syntax_valid": null,
+          "validation_message": "No validator for csharp",
+          "quality": {
+            "line_count": 3,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "csharp",
+          "code_length": 204,
+          "line_count": 6,
+          "syntax_valid": null,
+          "validation_message": "No validator for csharp",
+          "quality": {
+            "line_count": 6,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "csharp",
+          "code_length": 231,
+          "line_count": 4,
+          "syntax_valid": null,
+          "validation_message": "No validator for csharp",
+          "quality": {
+            "line_count": 4,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        }
+      ],
+      "syntax_errors": [],
+      "quality_metrics": {
+        "total_code_lines": 298,
+        "has_imports": false,
+        "has_error_handling": false,
+        "complexity_distribution": [
+          "moderate",
+          "trivial",
+          "moderate",
+          "complex",
+          "trivial",
+          "trivial",
+          "trivial"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "logging-000003",
+      "category": "logging_failures",
+      "subcategory": "logging",
+      "language": "java",
+      "difficulty": "moderate",
+      "severity": "HIGH",
+      "cve": "CVE-2021-44228",
+      "code_blocks_found": 8,
+      "code_blocks_validated": [
+        {
+          "language_tag": "java",
+          "code_length": 1199,
+          "line_count": 33,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 33,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "text",
+          "code_length": 165,
+          "line_count": 2,
+          "syntax_valid": null,
+          "validation_message": "No validator for text",
+          "quality": {
+            "line_count": 2,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "java",
+          "code_length": 2113,
+          "line_count": 54,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 54,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "java",
+          "code_length": 5097,
+          "line_count": 127,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 127,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "java",
+          "code_length": 453,
+          "line_count": 7,
+          "syntax_valid": false,
+          "validation_message": "Invalid access modifier usage",
+          "quality": {
+            "line_count": 7,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "java",
+          "code_length": 484,
+          "line_count": 13,
+          "syntax_valid": false,
+          "validation_message": "Invalid access modifier usage",
+          "quality": {
+            "line_count": 13,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "java",
+          "code_length": 269,
+          "line_count": 6,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 6,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "xml",
+          "code_length": 709,
+          "line_count": 17,
+          "syntax_valid": null,
+          "validation_message": "No validator for xml",
+          "quality": {
+            "line_count": 17,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        }
+      ],
+      "syntax_errors": [
+        "Java: Invalid access modifier usage",
+        "Java: Invalid access modifier usage"
+      ],
+      "quality_metrics": {
+        "total_code_lines": 259,
+        "has_imports": true,
+        "has_error_handling": true,
+        "complexity_distribution": [
+          "moderate",
+          "trivial",
+          "moderate",
+          "complex",
+          "trivial",
+          "simple",
+          "trivial",
+          "simple"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "authorization-000002",
+      "category": "broken_access_control",
+      "subcategory": "authorization",
+      "language": "javascript",
+      "difficulty": "moderate",
+      "severity": "CRITICAL",
+      "cve": "CVE-2023-29055",
+      "code_blocks_found": 8,
+      "code_blocks_validated": [
+        {
+          "language_tag": "javascript",
+          "code_length": 1151,
+          "line_count": 42,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 42,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "bash",
+          "code_length": 399,
+          "line_count": 10,
+          "syntax_valid": null,
+          "validation_message": "No validator for bash",
+          "quality": {
+            "line_count": 10,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 2448,
+          "line_count": 76,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 76,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 9063,
+          "line_count": 297,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 297,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 173,
+          "line_count": 4,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 4,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 190,
+          "line_count": 5,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 5,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 95,
+          "line_count": 3,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 3,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 82,
+          "line_count": 2,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 2,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        }
+      ],
+      "syntax_errors": [],
+      "quality_metrics": {
+        "total_code_lines": 439,
+        "has_imports": true,
+        "has_error_handling": true,
+        "complexity_distribution": [
+          "moderate",
+          "simple",
+          "moderate",
+          "complex",
+          "trivial",
+          "trivial",
+          "trivial",
+          "trivial"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "authorization-000001",
+      "category": "broken_access_control",
+      "subcategory": "authorization",
+      "language": "python",
+      "difficulty": "moderate",
+      "severity": "CRITICAL",
+      "cve": "CVE-2023-27997",
+      "code_blocks_found": 8,
+      "code_blocks_validated": [
+        {
+          "language_tag": "python",
+          "code_length": 678,
+          "line_count": 25,
+          "syntax_valid": true,
+          "validation_message": "Valid Python syntax",
+          "quality": {
+            "line_count": 25,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "text",
+          "code_length": 121,
+          "line_count": 3,
+          "syntax_valid": null,
+          "validation_message": "No validator for text",
+          "quality": {
+            "line_count": 3,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "text",
+          "code_length": 79,
+          "line_count": 3,
+          "syntax_valid": null,
+          "validation_message": "No validator for text",
+          "quality": {
+            "line_count": 3,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "python",
+          "code_length": 2289,
+          "line_count": 63,
+          "syntax_valid": true,
+          "validation_message": "Valid Python syntax",
+          "quality": {
+            "line_count": 63,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "python",
+          "code_length": 9394,
+          "line_count": 291,
+          "syntax_valid": true,
+          "validation_message": "Valid Python syntax",
+          "quality": {
+            "line_count": 291,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "python",
+          "code_length": 139,
+          "line_count": 4,
+          "syntax_valid": true,
+          "validation_message": "Valid Python syntax",
+          "quality": {
+            "line_count": 4,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "python",
+          "code_length": 273,
+          "line_count": 7,
+          "syntax_valid": true,
+          "validation_message": "Valid Python syntax",
+          "quality": {
+            "line_count": 7,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "python",
+          "code_length": 203,
+          "line_count": 5,
+          "syntax_valid": true,
+          "validation_message": "Valid Python syntax",
+          "quality": {
+            "line_count": 5,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        }
+      ],
+      "syntax_errors": [],
+      "quality_metrics": {
+        "total_code_lines": 401,
+        "has_imports": true,
+        "has_error_handling": true,
+        "complexity_distribution": [
+          "simple",
+          "trivial",
+          "trivial",
+          "moderate",
+          "complex",
+          "trivial",
+          "trivial",
+          "trivial"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "authentication-000009",
+      "category": "auth_failures",
+      "subcategory": "authentication",
+      "language": "go",
+      "difficulty": "moderate",
+      "severity": "HIGH",
+      "cve": "N/A",
+      "code_blocks_found": 7,
+      "code_blocks_validated": [
+        {
+          "language_tag": "go",
+          "code_length": 1390,
+          "line_count": 55,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 55,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "bash",
+          "code_length": 253,
+          "line_count": 8,
+          "syntax_valid": null,
+          "validation_message": "No validator for bash",
+          "quality": {
+            "line_count": 8,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "go",
+          "code_length": 3458,
+          "line_count": 122,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 122,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "go",
+          "code_length": 9297,
+          "line_count": 292,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 292,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "go",
+          "code_length": 544,
+          "line_count": 17,
+          "syntax_valid": false,
+          "validation_message": "Missing package declaration (may be snippet)",
+          "quality": {
+            "line_count": 17,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "go",
+          "code_length": 381,
+          "line_count": 11,
+          "syntax_valid": false,
+          "validation_message": "Missing package declaration (may be snippet)",
+          "quality": {
+            "line_count": 11,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "go",
+          "code_length": 785,
+          "line_count": 28,
+          "syntax_valid": false,
+          "validation_message": "Missing package declaration (may be snippet)",
+          "quality": {
+            "line_count": 28,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        }
+      ],
+      "syntax_errors": [
+        "Go: Missing package declaration (may be snippet)",
+        "Go: Missing package declaration (may be snippet)",
+        "Go: Missing package declaration (may be snippet)"
+      ],
+      "quality_metrics": {
+        "total_code_lines": 533,
+        "has_imports": true,
+        "has_error_handling": true,
+        "complexity_distribution": [
+          "moderate",
+          "trivial",
+          "complex",
+          "complex",
+          "simple",
+          "simple",
+          "simple"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "authentication-000005",
+      "category": "auth_failures",
+      "subcategory": "authentication",
+      "language": "php",
+      "difficulty": "moderate",
+      "severity": "HIGH",
+      "cve": "CVE-2023-3519",
+      "code_blocks_found": 7,
+      "code_blocks_validated": [
+        {
+          "language_tag": "php",
+          "code_length": 785,
+          "line_count": 27,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 27,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "text",
+          "code_length": 67,
+          "line_count": 2,
+          "syntax_valid": null,
+          "validation_message": "No validator for text",
+          "quality": {
+            "line_count": 2,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "php",
+          "code_length": 2081,
+          "line_count": 62,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 62,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "php",
+          "code_length": 4001,
+          "line_count": 137,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 137,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "php",
+          "code_length": 217,
+          "line_count": 9,
+          "syntax_valid": false,
+          "validation_message": "Missing <?php opening tag",
+          "quality": {
+            "line_count": 9,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "php",
+          "code_length": 314,
+          "line_count": 12,
+          "syntax_valid": false,
+          "validation_message": "Missing <?php opening tag",
+          "quality": {
+            "line_count": 12,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "php",
+          "code_length": 413,
+          "line_count": 11,
+          "syntax_valid": false,
+          "validation_message": "Missing <?php opening tag",
+          "quality": {
+            "line_count": 11,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        }
+      ],
+      "syntax_errors": [
+        "PHP: Missing <?php opening tag",
+        "PHP: Missing <?php opening tag",
+        "PHP: Missing <?php opening tag"
+      ],
+      "quality_metrics": {
+        "total_code_lines": 260,
+        "has_imports": true,
+        "has_error_handling": false,
+        "complexity_distribution": [
+          "simple",
+          "trivial",
+          "moderate",
+          "complex",
+          "trivial",
+          "simple",
+          "simple"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "authorization-000008",
+      "category": "broken_access_control",
+      "subcategory": "authorization",
+      "language": "typescript",
+      "difficulty": "moderate",
+      "severity": "CRITICAL",
+      "cve": "CVE-2023-1138",
+      "code_blocks_found": 7,
+      "code_blocks_validated": [
+        {
+          "language_tag": "typescript",
+          "code_length": 970,
+          "line_count": 36,
+          "syntax_valid": null,
+          "validation_message": "No validator for typescript",
+          "quality": {
+            "line_count": 36,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "bash",
+          "code_length": 153,
+          "line_count": 4,
+          "syntax_valid": null,
+          "validation_message": "No validator for bash",
+          "quality": {
+            "line_count": 4,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "typescript",
+          "code_length": 2055,
+          "line_count": 78,
+          "syntax_valid": null,
+          "validation_message": "No validator for typescript",
+          "quality": {
+            "line_count": 78,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "typescript",
+          "code_length": 5752,
+          "line_count": 211,
+          "syntax_valid": null,
+          "validation_message": "No validator for typescript",
+          "quality": {
+            "line_count": 211,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "typescript",
+          "code_length": 116,
+          "line_count": 4,
+          "syntax_valid": null,
+          "validation_message": "No validator for typescript",
+          "quality": {
+            "line_count": 4,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "typescript",
+          "code_length": 127,
+          "line_count": 4,
+          "syntax_valid": null,
+          "validation_message": "No validator for typescript",
+          "quality": {
+            "line_count": 4,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "typescript",
+          "code_length": 178,
+          "line_count": 8,
+          "syntax_valid": null,
+          "validation_message": "No validator for typescript",
+          "quality": {
+            "line_count": 8,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        }
+      ],
+      "syntax_errors": [],
+      "quality_metrics": {
+        "total_code_lines": 345,
+        "has_imports": true,
+        "has_error_handling": true,
+        "complexity_distribution": [
+          "moderate",
+          "trivial",
+          "moderate",
+          "complex",
+          "trivial",
+          "trivial",
+          "trivial"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "sql-000008",
+      "category": "injection",
+      "subcategory": "sql",
+      "language": "kotlin",
+      "difficulty": "moderate",
+      "severity": "CRITICAL",
+      "cve": "CVE-2023-34362",
+      "code_blocks_found": 9,
+      "code_blocks_validated": [
+        {
+          "language_tag": "kotlin",
+          "code_length": 1959,
+          "line_count": 54,
+          "syntax_valid": null,
+          "validation_message": "No validator for kotlin",
+          "quality": {
+            "line_count": 54,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "sql",
+          "code_length": 24,
+          "line_count": 2,
+          "syntax_valid": null,
+          "validation_message": "No validator for sql",
+          "quality": {
+            "line_count": 2,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 54,
+          "line_count": 2,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 2,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "sql",
+          "code_length": 82,
+          "line_count": 2,
+          "syntax_valid": null,
+          "validation_message": "No validator for sql",
+          "quality": {
+            "line_count": 2,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "kotlin",
+          "code_length": 3286,
+          "line_count": 101,
+          "syntax_valid": null,
+          "validation_message": "No validator for kotlin",
+          "quality": {
+            "line_count": 101,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "kotlin",
+          "code_length": 5952,
+          "line_count": 171,
+          "syntax_valid": null,
+          "validation_message": "No validator for kotlin",
+          "quality": {
+            "line_count": 171,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "kotlin",
+          "code_length": 184,
+          "line_count": 5,
+          "syntax_valid": null,
+          "validation_message": "No validator for kotlin",
+          "quality": {
+            "line_count": 5,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "kotlin",
+          "code_length": 132,
+          "line_count": 5,
+          "syntax_valid": null,
+          "validation_message": "No validator for kotlin",
+          "quality": {
+            "line_count": 5,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "kotlin",
+          "code_length": 209,
+          "line_count": 6,
+          "syntax_valid": null,
+          "validation_message": "No validator for kotlin",
+          "quality": {
+            "line_count": 6,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        }
+      ],
+      "syntax_errors": [],
+      "quality_metrics": {
+        "total_code_lines": 348,
+        "has_imports": false,
+        "has_error_handling": false,
+        "complexity_distribution": [
+          "moderate",
+          "trivial",
+          "trivial",
+          "trivial",
+          "complex",
+          "complex",
+          "trivial",
+          "trivial",
+          "trivial"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "misconfiguration-000005",
+      "category": "security_misconfiguration",
+      "subcategory": "misconfiguration",
+      "language": "ruby",
+      "difficulty": "moderate",
+      "severity": "CRITICAL",
+      "cve": "N/A",
+      "code_blocks_found": 4,
+      "code_blocks_validated": [
+        {
+          "language_tag": "ruby",
+          "code_length": 1247,
+          "line_count": 44,
+          "syntax_valid": null,
+          "validation_message": "No validator for ruby",
+          "quality": {
+            "line_count": 44,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "bash",
+          "code_length": 346,
+          "line_count": 11,
+          "syntax_valid": null,
+          "validation_message": "No validator for bash",
+          "quality": {
+            "line_count": 11,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "ruby",
+          "code_length": 2511,
+          "line_count": 87,
+          "syntax_valid": null,
+          "validation_message": "No validator for ruby",
+          "quality": {
+            "line_count": 87,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "ruby",
+          "code_length": 5395,
+          "line_count": 205,
+          "syntax_valid": null,
+          "validation_message": "No validator for ruby",
+          "quality": {
+            "line_count": 205,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "complex"
+          }
+        }
+      ],
+      "syntax_errors": [],
+      "quality_metrics": {
+        "total_code_lines": 347,
+        "has_imports": false,
+        "has_error_handling": false,
+        "complexity_distribution": [
+          "moderate",
+          "simple",
+          "moderate",
+          "complex"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "misconfiguration-000006",
+      "category": "security_misconfiguration",
+      "subcategory": "misconfiguration",
+      "language": "docker",
+      "difficulty": "moderate",
+      "severity": "HIGH",
+      "cve": "CVE-2018-8825",
+      "code_blocks_found": 15,
+      "code_blocks_validated": [
+        {
+          "language_tag": "dockerfile",
+          "code_length": 246,
+          "line_count": 13,
+          "syntax_valid": null,
+          "validation_message": "No validator for dockerfile",
+          "quality": {
+            "line_count": 13,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "nginx",
+          "code_length": 439,
+          "line_count": 23,
+          "syntax_valid": null,
+          "validation_message": "No validator for nginx",
+          "quality": {
+            "line_count": 23,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "html",
+          "code_length": 329,
+          "line_count": 12,
+          "syntax_valid": null,
+          "validation_message": "No validator for html",
+          "quality": {
+            "line_count": 12,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "html",
+          "code_length": 175,
+          "line_count": 6,
+          "syntax_valid": null,
+          "validation_message": "No validator for html",
+          "quality": {
+            "line_count": 6,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "dockerfile",
+          "code_length": 994,
+          "line_count": 29,
+          "syntax_valid": null,
+          "validation_message": "No validator for dockerfile",
+          "quality": {
+            "line_count": 29,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "nginx",
+          "code_length": 898,
+          "line_count": 12,
+          "syntax_valid": null,
+          "validation_message": "No validator for nginx",
+          "quality": {
+            "line_count": 12,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "yaml",
+          "code_length": 1740,
+          "line_count": 88,
+          "syntax_valid": null,
+          "validation_message": "No validator for yaml",
+          "quality": {
+            "line_count": 88,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "dockerfile",
+          "code_length": 962,
+          "line_count": 29,
+          "syntax_valid": null,
+          "validation_message": "No validator for dockerfile",
+          "quality": {
+            "line_count": 29,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "nginx",
+          "code_length": 3848,
+          "line_count": 127,
+          "syntax_valid": null,
+          "validation_message": "No validator for nginx",
+          "quality": {
+            "line_count": 127,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "nginx",
+          "code_length": 1556,
+          "line_count": 30,
+          "syntax_valid": null,
+          "validation_message": "No validator for nginx",
+          "quality": {
+            "line_count": 30,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 288,
+          "line_count": 10,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 10,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 753,
+          "line_count": 31,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 31,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "yaml",
+          "code_length": 62,
+          "line_count": 4,
+          "syntax_valid": null,
+          "validation_message": "No validator for yaml",
+          "quality": {
+            "line_count": 4,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "yaml",
+          "code_length": 75,
+          "line_count": 6,
+          "syntax_valid": null,
+          "validation_message": "No validator for yaml",
+          "quality": {
+            "line_count": 6,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "nginx",
+          "code_length": 100,
+          "line_count": 2,
+          "syntax_valid": null,
+          "validation_message": "No validator for nginx",
+          "quality": {
+            "line_count": 2,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        }
+      ],
+      "syntax_errors": [],
+      "quality_metrics": {
+        "total_code_lines": 422,
+        "has_imports": true,
+        "has_error_handling": false,
+        "complexity_distribution": [
+          "simple",
+          "simple",
+          "simple",
+          "trivial",
+          "simple",
+          "simple",
+          "moderate",
+          "simple",
+          "complex",
+          "moderate",
+          "simple",
+          "moderate",
+          "trivial",
+          "trivial",
+          "trivial"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "authentication-000010",
+      "category": "auth_failures",
+      "subcategory": "authentication",
+      "language": "rust",
+      "difficulty": "moderate",
+      "severity": "CRITICAL",
+      "cve": "N/A",
+      "code_blocks_found": 5,
+      "code_blocks_validated": [
+        {
+          "language_tag": "rust",
+          "code_length": 2059,
+          "line_count": 84,
+          "syntax_valid": null,
+          "validation_message": "No validator for rust",
+          "quality": {
+            "line_count": 84,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "text",
+          "code_length": 204,
+          "line_count": 2,
+          "syntax_valid": null,
+          "validation_message": "No validator for text",
+          "quality": {
+            "line_count": 2,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "rust",
+          "code_length": 3213,
+          "line_count": 116,
+          "syntax_valid": null,
+          "validation_message": "No validator for rust",
+          "quality": {
+            "line_count": 116,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "rust",
+          "code_length": 6595,
+          "line_count": 224,
+          "syntax_valid": null,
+          "validation_message": "No validator for rust",
+          "quality": {
+            "line_count": 224,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "rust",
+          "code_length": 162,
+          "line_count": 4,
+          "syntax_valid": null,
+          "validation_message": "No validator for rust",
+          "quality": {
+            "line_count": 4,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        }
+      ],
+      "syntax_errors": [],
+      "quality_metrics": {
+        "total_code_lines": 430,
+        "has_imports": false,
+        "has_error_handling": false,
+        "complexity_distribution": [
+          "moderate",
+          "trivial",
+          "complex",
+          "complex",
+          "trivial"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "xss-000004",
+      "category": "injection",
+      "subcategory": "xss",
+      "language": "vue",
+      "difficulty": "advanced",
+      "severity": "CRITICAL",
+      "cve": "CVE-2022-28799",
+      "code_blocks_found": 7,
+      "code_blocks_validated": [
+        {
+          "language_tag": "vue",
+          "code_length": 1082,
+          "line_count": 41,
+          "syntax_valid": null,
+          "validation_message": "No validator for vue",
+          "quality": {
+            "line_count": 41,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "html",
+          "code_length": 404,
+          "line_count": 9,
+          "syntax_valid": null,
+          "validation_message": "No validator for html",
+          "quality": {
+            "line_count": 9,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "vue",
+          "code_length": 3720,
+          "line_count": 137,
+          "syntax_valid": null,
+          "validation_message": "No validator for vue",
+          "quality": {
+            "line_count": 137,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "vue",
+          "code_length": 12230,
+          "line_count": 441,
+          "syntax_valid": null,
+          "validation_message": "No validator for vue",
+          "quality": {
+            "line_count": 441,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 102,
+          "line_count": 4,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 4,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 153,
+          "line_count": 5,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 5,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 137,
+          "line_count": 5,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 5,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        }
+      ],
+      "syntax_errors": [],
+      "quality_metrics": {
+        "total_code_lines": 642,
+        "has_imports": false,
+        "has_error_handling": false,
+        "complexity_distribution": [
+          "moderate",
+          "trivial",
+          "complex",
+          "complex",
+          "trivial",
+          "trivial",
+          "trivial"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "misconfiguration-000007",
+      "category": "security_misconfiguration",
+      "subcategory": "misconfiguration",
+      "language": "kubernetes",
+      "difficulty": "moderate",
+      "severity": "HIGH",
+      "cve": "CVE-2023-5044",
+      "code_blocks_found": 7,
+      "code_blocks_validated": [
+        {
+          "language_tag": "yaml",
+          "code_length": 1231,
+          "line_count": 44,
+          "syntax_valid": null,
+          "validation_message": "No validator for yaml",
+          "quality": {
+            "line_count": 44,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "yaml",
+          "code_length": 419,
+          "line_count": 18,
+          "syntax_valid": null,
+          "validation_message": "No validator for yaml",
+          "quality": {
+            "line_count": 18,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "yaml",
+          "code_length": 1566,
+          "line_count": 55,
+          "syntax_valid": null,
+          "validation_message": "No validator for yaml",
+          "quality": {
+            "line_count": 55,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "yaml",
+          "code_length": 6051,
+          "line_count": 206,
+          "syntax_valid": null,
+          "validation_message": "No validator for yaml",
+          "quality": {
+            "line_count": 206,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "yaml",
+          "code_length": 324,
+          "line_count": 12,
+          "syntax_valid": null,
+          "validation_message": "No validator for yaml",
+          "quality": {
+            "line_count": 12,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "yaml",
+          "code_length": 84,
+          "line_count": 4,
+          "syntax_valid": null,
+          "validation_message": "No validator for yaml",
+          "quality": {
+            "line_count": 4,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "yaml",
+          "code_length": 355,
+          "line_count": 15,
+          "syntax_valid": null,
+          "validation_message": "No validator for yaml",
+          "quality": {
+            "line_count": 15,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        }
+      ],
+      "syntax_errors": [],
+      "quality_metrics": {
+        "total_code_lines": 354,
+        "has_imports": false,
+        "has_error_handling": false,
+        "complexity_distribution": [
+          "moderate",
+          "simple",
+          "moderate",
+          "complex",
+          "simple",
+          "trivial",
+          "simple"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "xss-000010",
+      "category": "injection",
+      "subcategory": "xss",
+      "language": "angular",
+      "difficulty": "advanced",
+      "severity": "CRITICAL",
+      "cve": "CVE-2023-26116",
+      "code_blocks_found": 7,
+      "code_blocks_validated": [
+        {
+          "language_tag": "angular",
+          "code_length": 1693,
+          "line_count": 52,
+          "syntax_valid": null,
+          "validation_message": "No validator for angular",
+          "quality": {
+            "line_count": 52,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "html",
+          "code_length": 564,
+          "line_count": 16,
+          "syntax_valid": null,
+          "validation_message": "No validator for html",
+          "quality": {
+            "line_count": 16,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "angular",
+          "code_length": 3500,
+          "line_count": 103,
+          "syntax_valid": null,
+          "validation_message": "No validator for angular",
+          "quality": {
+            "line_count": 103,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "angular",
+          "code_length": 10262,
+          "line_count": 317,
+          "syntax_valid": null,
+          "validation_message": "No validator for angular",
+          "quality": {
+            "line_count": 317,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "typescript",
+          "code_length": 198,
+          "line_count": 6,
+          "syntax_valid": null,
+          "validation_message": "No validator for typescript",
+          "quality": {
+            "line_count": 6,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "typescript",
+          "code_length": 194,
+          "line_count": 4,
+          "syntax_valid": null,
+          "validation_message": "No validator for typescript",
+          "quality": {
+            "line_count": 4,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "typescript",
+          "code_length": 137,
+          "line_count": 5,
+          "syntax_valid": null,
+          "validation_message": "No validator for typescript",
+          "quality": {
+            "line_count": 5,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        }
+      ],
+      "syntax_errors": [],
+      "quality_metrics": {
+        "total_code_lines": 503,
+        "has_imports": false,
+        "has_error_handling": false,
+        "complexity_distribution": [
+          "moderate",
+          "simple",
+          "complex",
+          "complex",
+          "trivial",
+          "trivial",
+          "trivial"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "xss-000008",
+      "category": "injection",
+      "subcategory": "xss",
+      "language": "react",
+      "difficulty": "advanced",
+      "severity": "CRITICAL",
+      "cve": "CVE-2023-36936",
+      "code_blocks_found": 9,
+      "code_blocks_validated": [
+        {
+          "language_tag": "javascript",
+          "code_length": 785,
+          "line_count": 31,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 31,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "html",
+          "code_length": 754,
+          "line_count": 16,
+          "syntax_valid": null,
+          "validation_message": "No validator for html",
+          "quality": {
+            "line_count": 16,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 2244,
+          "line_count": 74,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 74,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 9462,
+          "line_count": 315,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 315,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 3612,
+          "line_count": 113,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 113,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 166,
+          "line_count": 6,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 6,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 118,
+          "line_count": 3,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 3,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 70,
+          "line_count": 2,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 2,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "javascript",
+          "code_length": 99,
+          "line_count": 3,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 3,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        }
+      ],
+      "syntax_errors": [],
+      "quality_metrics": {
+        "total_code_lines": 563,
+        "has_imports": true,
+        "has_error_handling": true,
+        "complexity_distribution": [
+          "moderate",
+          "simple",
+          "moderate",
+          "complex",
+          "complex",
+          "trivial",
+          "trivial",
+          "trivial",
+          "trivial"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "authentication-000007",
+      "category": "auth_failures",
+      "subcategory": "authentication",
+      "language": "csharp",
+      "difficulty": "moderate",
+      "severity": "CRITICAL",
+      "cve": "CVE-2022-* (associated vulnerabilities around LastPass infrastructure; exact CVE numbering focused on surrounding issues rather than PBKDF2 strength itself)",
+      "code_blocks_found": 4,
+      "code_blocks_validated": [
+        {
+          "language_tag": "csharp",
+          "code_length": 1063,
+          "line_count": 31,
+          "syntax_valid": null,
+          "validation_message": "No validator for csharp",
+          "quality": {
+            "line_count": 31,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "bash",
+          "code_length": 141,
+          "line_count": 3,
+          "syntax_valid": null,
+          "validation_message": "No validator for bash",
+          "quality": {
+            "line_count": 3,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "csharp",
+          "code_length": 2824,
+          "line_count": 91,
+          "syntax_valid": null,
+          "validation_message": "No validator for csharp",
+          "quality": {
+            "line_count": 91,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "csharp",
+          "code_length": 7341,
+          "line_count": 210,
+          "syntax_valid": null,
+          "validation_message": "No validator for csharp",
+          "quality": {
+            "line_count": 210,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "complex"
+          }
+        }
+      ],
+      "syntax_errors": [],
+      "quality_metrics": {
+        "total_code_lines": 335,
+        "has_imports": false,
+        "has_error_handling": false,
+        "complexity_distribution": [
+          "moderate",
+          "trivial",
+          "moderate",
+          "complex"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "design_flaws-000004",
+      "category": "insecure_design",
+      "subcategory": "design_flaws",
+      "language": "go",
+      "difficulty": "advanced",
+      "severity": "HIGH",
+      "cve": "CVE-2024-21626",
+      "code_blocks_found": 7,
+      "code_blocks_validated": [
+        {
+          "language_tag": "go",
+          "code_length": 870,
+          "line_count": 41,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 41,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "bash",
+          "code_length": 229,
+          "line_count": 6,
+          "syntax_valid": null,
+          "validation_message": "No validator for bash",
+          "quality": {
+            "line_count": 6,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "go",
+          "code_length": 1742,
+          "line_count": 65,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 65,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "go",
+          "code_length": 5295,
+          "line_count": 197,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 197,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "go",
+          "code_length": 398,
+          "line_count": 10,
+          "syntax_valid": false,
+          "validation_message": "Missing package declaration (may be snippet)",
+          "quality": {
+            "line_count": 10,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "go",
+          "code_length": 189,
+          "line_count": 6,
+          "syntax_valid": false,
+          "validation_message": "Missing package declaration (may be snippet)",
+          "quality": {
+            "line_count": 6,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "go",
+          "code_length": 203,
+          "line_count": 9,
+          "syntax_valid": false,
+          "validation_message": "Missing package declaration (may be snippet)",
+          "quality": {
+            "line_count": 9,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        }
+      ],
+      "syntax_errors": [
+        "Go: Missing package declaration (may be snippet)",
+        "Go: Missing package declaration (may be snippet)",
+        "Go: Missing package declaration (may be snippet)"
+      ],
+      "quality_metrics": {
+        "total_code_lines": 334,
+        "has_imports": true,
+        "has_error_handling": true,
+        "complexity_distribution": [
+          "moderate",
+          "trivial",
+          "moderate",
+          "complex",
+          "simple",
+          "trivial",
+          "trivial"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "authentication-000008",
+      "category": "auth_failures",
+      "subcategory": "authentication",
+      "language": "java",
+      "difficulty": "moderate",
+      "severity": "HIGH",
+      "cve": "CVE-2023-22515",
+      "code_blocks_found": 7,
+      "code_blocks_validated": [
+        {
+          "language_tag": "java",
+          "code_length": 1185,
+          "line_count": 34,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 34,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "html",
+          "code_length": 659,
+          "line_count": 15,
+          "syntax_valid": null,
+          "validation_message": "No validator for html",
+          "quality": {
+            "line_count": 15,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "java",
+          "code_length": 1904,
+          "line_count": 47,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 47,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "java",
+          "code_length": 6700,
+          "line_count": 147,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 147,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": true,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "java",
+          "code_length": 222,
+          "line_count": 4,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 4,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "java",
+          "code_length": 804,
+          "line_count": 19,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 19,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        },
+        {
+          "language_tag": "java",
+          "code_length": 426,
+          "line_count": 13,
+          "syntax_valid": false,
+          "validation_message": "Invalid access modifier usage",
+          "quality": {
+            "line_count": 13,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "simple"
+          }
+        }
+      ],
+      "syntax_errors": [
+        "Java: Invalid access modifier usage"
+      ],
+      "quality_metrics": {
+        "total_code_lines": 279,
+        "has_imports": true,
+        "has_error_handling": false,
+        "complexity_distribution": [
+          "moderate",
+          "simple",
+          "moderate",
+          "complex",
+          "trivial",
+          "simple",
+          "simple"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "authentication-000004",
+      "category": "auth_failures",
+      "subcategory": "authentication",
+      "language": "rust",
+      "difficulty": "moderate",
+      "severity": "CRITICAL",
+      "cve": "CVE-2022-34718",
+      "code_blocks_found": 7,
+      "code_blocks_validated": [
+        {
+          "language_tag": "rust",
+          "code_length": 947,
+          "line_count": 32,
+          "syntax_valid": null,
+          "validation_message": "No validator for rust",
+          "quality": {
+            "line_count": 32,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "bash",
+          "code_length": 86,
+          "line_count": 3,
+          "syntax_valid": null,
+          "validation_message": "No validator for bash",
+          "quality": {
+            "line_count": 3,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "rust",
+          "code_length": 1742,
+          "line_count": 62,
+          "syntax_valid": null,
+          "validation_message": "No validator for rust",
+          "quality": {
+            "line_count": 62,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "rust",
+          "code_length": 5009,
+          "line_count": 172,
+          "syntax_valid": null,
+          "validation_message": "No validator for rust",
+          "quality": {
+            "line_count": 172,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "rust",
+          "code_length": 70,
+          "line_count": 2,
+          "syntax_valid": null,
+          "validation_message": "No validator for rust",
+          "quality": {
+            "line_count": 2,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "rust",
+          "code_length": 152,
+          "line_count": 3,
+          "syntax_valid": null,
+          "validation_message": "No validator for rust",
+          "quality": {
+            "line_count": 3,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "rust",
+          "code_length": 72,
+          "line_count": 2,
+          "syntax_valid": null,
+          "validation_message": "No validator for rust",
+          "quality": {
+            "line_count": 2,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        }
+      ],
+      "syntax_errors": [],
+      "quality_metrics": {
+        "total_code_lines": 276,
+        "has_imports": false,
+        "has_error_handling": false,
+        "complexity_distribution": [
+          "moderate",
+          "trivial",
+          "moderate",
+          "complex",
+          "trivial",
+          "trivial",
+          "trivial"
+        ]
+      },
+      "overall_valid": true
+    },
+    {
+      "example_id": "authorization-000005",
+      "category": "broken_access_control",
+      "subcategory": "authorization",
+      "language": "php",
+      "difficulty": "basic",
+      "severity": "CRITICAL",
+      "cve": "N/A - Configuration/design flaw",
+      "code_blocks_found": 8,
+      "code_blocks_validated": [
+        {
+          "language_tag": "php",
+          "code_length": 968,
+          "line_count": 34,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 34,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "bash",
+          "code_length": 189,
+          "line_count": 6,
+          "syntax_valid": null,
+          "validation_message": "No validator for bash",
+          "quality": {
+            "line_count": 6,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "php",
+          "code_length": 1740,
+          "line_count": 53,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 53,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "php",
+          "code_length": 2652,
+          "line_count": 82,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 82,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "moderate"
+          }
+        },
+        {
+          "language_tag": "php",
+          "code_length": 3520,
+          "line_count": 104,
+          "syntax_valid": true,
+          "validation_message": "Basic syntax checks passed",
+          "quality": {
+            "line_count": 104,
+            "has_comments": true,
+            "has_error_handling": true,
+            "has_imports": true,
+            "complexity": "complex"
+          }
+        },
+        {
+          "language_tag": "php",
+          "code_length": 111,
+          "line_count": 5,
+          "syntax_valid": false,
+          "validation_message": "Missing <?php opening tag",
+          "quality": {
+            "line_count": 5,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "php",
+          "code_length": 238,
+          "line_count": 7,
+          "syntax_valid": false,
+          "validation_message": "Missing <?php opening tag",
+          "quality": {
+            "line_count": 7,
+            "has_comments": true,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        },
+        {
+          "language_tag": "php",
+          "code_length": 108,
+          "line_count": 4,
+          "syntax_valid": false,
+          "validation_message": "Missing <?php opening tag",
+          "quality": {
+            "line_count": 4,
+            "has_comments": false,
+            "has_error_handling": false,
+            "has_imports": false,
+            "complexity": "trivial"
+          }
+        }
+      ],
+      "syntax_errors": [
+        "PHP: Missing <?php opening tag",
+        "PHP: Missing <?php opening tag",
+        "PHP: Missing <?php opening tag"
+      ],
+      "quality_metrics": {
+        "total_code_lines": 295,
+        "has_imports": true,
+        "has_error_handling": true,
+        "complexity_distribution": [
+          "moderate",
+          "trivial",
+          "moderate",
+          "moderate",
+          "complex",
+          "trivial",
+          "trivial",
+          "trivial"
+        ]
+      },
+      "overall_valid": true
+    }
+  ]
+}

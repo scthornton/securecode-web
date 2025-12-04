@@ -1,0 +1,85 @@
+{
+  "total": 5,
+  "passed": 5,
+  "failed": 0,
+  "pass_rate": 100.0,
+  "results": [
+    {
+      "example_id": "sql-injection-000001",
+      "passed": true,
+      "issues": [],
+      "checks": {
+        "syntax_check": "passed",
+        "security_review": "passed",
+        "code_execution": "not_tested",
+        "encoding_check": "passed",
+        "duplication_check": "passed",
+        "schema_validation": "passed"
+      }
+    },
+    {
+      "example_id": "sql-injection-000002",
+      "passed": true,
+      "issues": [],
+      "checks": {
+        "syntax_check": "passed",
+        "security_review": "passed",
+        "code_execution": "not_tested",
+        "encoding_check": "passed",
+        "duplication_check": "passed",
+        "schema_validation": "passed"
+      }
+    },
+    {
+      "example_id": "sql-injection-000003",
+      "passed": true,
+      "issues": [
+        {
+          "check": "security_review",
+          "severity": "WARNING",
+          "message": "SQL injection fix should use parameterized queries/prepared statements"
+        }
+      ],
+      "checks": {
+        "syntax_check": "passed",
+        "security_review": "not_reviewed",
+        "code_execution": "not_tested",
+        "encoding_check": "passed",
+        "duplication_check": "passed",
+        "schema_validation": "passed"
+      }
+    },
+    {
+      "example_id": "sql-injection-000004",
+      "passed": true,
+      "issues": [],
+      "checks": {
+        "syntax_check": "passed",
+        "security_review": "passed",
+        "code_execution": "not_tested",
+        "encoding_check": "passed",
+        "duplication_check": "passed",
+        "schema_validation": "passed"
+      }
+    },
+    {
+      "example_id": "sql-injection-000005",
+      "passed": true,
+      "issues": [
+        {
+          "check": "security_review",
+          "severity": "WARNING",
+          "message": "SQL injection fix should use parameterized queries/prepared statements"
+        }
+      ],
+      "checks": {
+        "syntax_check": "passed",
+        "security_review": "not_reviewed",
+        "code_execution": "not_tested",
+        "encoding_check": "passed",
+        "duplication_check": "passed",
+        "schema_validation": "passed"
+      }
+    }
+  ]
+}

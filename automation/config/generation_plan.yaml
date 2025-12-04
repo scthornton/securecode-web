@@ -1,0 +1,403 @@
+# SecureCode v2.0 API-Driven Generation Plan
+# Defines all batches to be generated to reach 1,000 examples
+
+# Current Progress: 90/1,000 (9%)
+# Remaining: 910 examples
+# Target: 1,000 total examples
+
+# API Provider Selection Strategy:
+# - claude: Complex security patterns, advanced techniques (A03 Injection advanced, A07 Auth, A02 Crypto)
+# - openai: Bulk generation, simpler patterns (XSS, CSRF, misconfigurations)
+# - gemini: Testing/validation (optional, for cost optimization)
+
+batches:
+  # ========================================
+  # PHASE 1: Complete A03 Injection Category (50 remaining)
+  # ========================================
+
+  - batch_id: "011"
+    name: "XSS Expansion Part 2"
+    category: "injection"
+    subcategory: "xss"
+    count: 10
+    provider: "openai"  # Simpler XSS patterns
+    languages: ["javascript", "typescript", "react", "vue", "angular"]
+    techniques:
+      - "CSP bypass advanced"
+      - "XSS in JSON contexts"
+      - "XSS in SVG/XML contexts"
+      - "Self-XSS to stored XSS escalation"
+      - "XSS in mobile WebViews"
+
+  - batch_id: "012"
+    name: "NoSQL + Command Advanced"
+    category: "injection"
+    subcategory: "mixed"
+    count: 10
+    provider: "claude"  # Advanced techniques need Claude
+    breakdown:
+      nosql_injection: 5
+      command_injection: 5
+    languages: ["python", "javascript", "java", "go", "php"]
+    techniques:
+      # NoSQL (5)
+      - "JavaScript injection in MongoDB"
+      - "Aggregation pipeline injection"
+      - "NoSQL blind injection"
+      - "Time-based NoSQL injection"
+      - "Redis command injection"
+      # Command (5)
+      - "DNS exfiltration via command injection"
+      - "Blind command injection detection"
+      - "Command injection in APIs"
+      - "CRLF injection"
+      - "Mail command injection"
+
+  - batch_id: "013"
+    name: "XML/XXE Injection"
+    category: "injection"
+    subcategory: "xxe"
+    count: 10
+    provider: "claude"  # XXE is complex
+    languages: ["java", "python", "php", "csharp", "go"]
+    techniques:
+      - "XXE file disclosure"
+      - "XXE SSRF attacks"
+      - "Blind XXE with OOB"
+      - "XXE in SOAP services"
+      - "XXE in document parsers (DOCX, XLSX)"
+      - "XXE parameter entities"
+      - "XXE billion laughs attack"
+
+  - batch_id: "014"
+    name: "Template + XSS Final"
+    category: "injection"
+    subcategory: "mixed"
+    count: 10
+    provider: "claude"
+    breakdown:
+      template_injection: 5
+      xss: 5
+    languages: ["java", "javascript", "python", "go", "ruby"]
+    techniques:
+      # SSTI (5)
+      - "Velocity SSTI (Java)"
+      - "Pug SSTI (Node.js)"
+      - "Thymeleaf SSTI (Spring)"
+      - "Go template injection"
+      - "Mustache SSTI"
+      # XSS (5)
+      - "XSS in email clients"
+      - "XSS in PDF generators"
+      - "Polyglot XSS payloads"
+      - "XSS via file upload"
+      - "XSS in markdown renderers"
+
+  - batch_id: "015"
+    name: "SQL + LDAP Final"
+    category: "injection"
+    subcategory: "mixed"
+    count: 10
+    provider: "claude"
+    breakdown:
+      sql_injection: 5
+      ldap_injection: 5
+    languages: ["python", "java", "php", "csharp", "go"]
+    techniques:
+      # SQL (5)
+      - "SQL injection in ORDER BY clause"
+      - "SQL injection in LIMIT clause"
+      - "Truncation-based injection"
+      - "SQL injection in JSON functions"
+      - "GraphQL injection"
+      # LDAP (5)
+      - "LDAP filter injection"
+      - "LDAP DN injection"
+      - "Blind LDAP injection"
+      - "LDAP injection in authentication"
+      - "LDAP enumeration"
+
+  # ========================================
+  # PHASE 2: A07 Authentication Failures (150 examples)
+  # ========================================
+
+  - batch_id: "016-025"
+    name: "Authentication Failures - Part 1-10"
+    category: "auth_failures"
+    subcategory: "authentication"
+    count: 100  # 10 batches x 10 examples
+    provider: "claude"  # Auth is critical, use Claude
+    languages: ["python", "javascript", "java", "go", "php", "csharp", "ruby"]
+    techniques:
+      - "Weak password requirements"
+      - "Missing rate limiting on login"
+      - "Session fixation"
+      - "Insecure password reset"
+      - "Missing MFA"
+      - "Credential stuffing vulnerabilities"
+      - "JWT algorithm confusion (alg=none)"
+      - "JWT weak secrets"
+      - "OAuth misconfigurations"
+      - "Session not invalidated on logout"
+      - "Predictable session IDs"
+      - "Missing secure/httponly flags"
+      - "Remember me vulnerabilities"
+      - "Password reset token not expiring"
+      - "Account enumeration"
+      - "Timing attacks on login"
+      - "Default credentials"
+      - "Hard-coded credentials"
+      - "Insecure credential storage"
+      - "Missing account lockout"
+
+  - batch_id: "026-030"
+    name: "Authentication Failures - Part 11-15"
+    category: "auth_failures"
+    subcategory: "authentication"
+    count: 50  # 5 batches x 10 examples
+    provider: "openai"  # Simpler auth patterns
+    languages: ["python", "javascript", "java", "go", "php"]
+    techniques:
+      - "Basic auth over HTTP"
+      - "Cookie theft via XSS"
+      - "CSRF on authentication endpoints"
+      - "Open redirect after login"
+      - "Insecure password change"
+      - "Missing CAPTCHA on registration"
+      - "Race conditions in registration"
+      - "SSO misconfigurations"
+      - "API key leakage"
+      - "Biometric bypass"
+
+  # ========================================
+  # PHASE 3: A01 Broken Access Control (150 examples)
+  # ========================================
+
+  - batch_id: "031-045"
+    name: "Broken Access Control"
+    category: "broken_access_control"
+    subcategory: "authorization"
+    count: 150  # 15 batches x 10 examples
+    provider: "claude"  # Access control is complex
+    languages: ["python", "javascript", "java", "go", "php", "csharp"]
+    techniques:
+      - "IDOR (Insecure Direct Object Reference)"
+      - "Path traversal"
+      - "Forced browsing"
+      - "Missing function level access control"
+      - "Privilege escalation (horizontal)"
+      - "Privilege escalation (vertical)"
+      - "CORS misconfiguration"
+      - "Missing authorization checks"
+      - "Client-side authorization"
+      - "Mass assignment"
+      - "Parameter pollution"
+      - "HTTP verb tampering"
+      - "Multi-tenant data leakage"
+      - "File upload path traversal"
+      - "GraphQL authorization bypass"
+
+  # ========================================
+  # PHASE 4: A05 Security Misconfiguration (120 examples)
+  # ========================================
+
+  - batch_id: "046-057"
+    name: "Security Misconfiguration"
+    category: "security_misconfiguration"
+    subcategory: "misconfiguration"
+    count: 120  # 12 batches x 10 examples
+    provider: "openai"  # Simpler configuration issues
+    languages: ["python", "javascript", "java", "go", "php", "docker", "kubernetes"]
+    techniques:
+      - "Debug mode in production"
+      - "Default configurations"
+      - "Directory listing enabled"
+      - "Verbose error messages"
+      - "Unnecessary features enabled"
+      - "Missing security headers"
+      - "CORS wildcard"
+      - "Permissive CSP"
+      - "Insecure deserialization"
+      - "XML external entities"
+      - "Server-side includes"
+      - "Exposed admin panels"
+
+  # ========================================
+  # PHASE 5: A02 Cryptographic Failures (100 examples)
+  # ========================================
+
+  - batch_id: "058-067"
+    name: "Cryptographic Failures"
+    category: "crypto_failures"
+    subcategory: "cryptography"
+    count: 100  # 10 batches x 10 examples
+    provider: "claude"  # Crypto requires precision
+    languages: ["python", "javascript", "java", "go", "csharp"]
+    techniques:
+      - "Weak encryption algorithms (DES, 3DES)"
+      - "ECB mode encryption"
+      - "Hard-coded encryption keys"
+      - "Weak random number generation"
+      - "Missing encryption at rest"
+      - "Missing TLS"
+      - "Weak TLS versions (SSLv3, TLS 1.0)"
+      - "Certificate validation disabled"
+      - "Weak hashing (MD5, SHA1)"
+      - "Insecure password hashing"
+
+  # ========================================
+  # PHASE 6: A04 Insecure Design (80 examples)
+  # ========================================
+
+  - batch_id: "068-075"
+    name: "Insecure Design"
+    category: "insecure_design"
+    subcategory: "design_flaws"
+    count: 80  # 8 batches x 10 examples
+    provider: "claude"
+    languages: ["python", "javascript", "java", "go"]
+    techniques:
+      - "Missing rate limiting"
+      - "Business logic flaws"
+      - "Race conditions"
+      - "TOCTOU vulnerabilities"
+      - "Insufficient workflow validation"
+      - "Missing input validation"
+      - "Trust boundary violations"
+      - "Security by obscurity"
+
+  # ========================================
+  # PHASE 7: A06 Vulnerable Components (80 examples)
+  # ========================================
+
+  - batch_id: "076-083"
+    name: "Vulnerable Components"
+    category: "vulnerable_components"
+    subcategory: "dependencies"
+    count: 80  # 8 batches x 10 examples
+    provider: "openai"
+    languages: ["python", "javascript", "java", "go", "php"]
+    techniques:
+      - "Outdated dependencies"
+      - "Known CVEs in libraries"
+      - "Dependency confusion"
+      - "Supply chain attacks"
+      - "Typosquatting"
+      - "Prototype pollution"
+      - "Insecure third-party integrations"
+
+  # ========================================
+  # PHASE 8: A08 Software/Data Integrity (80 examples)
+  # ========================================
+
+  - batch_id: "084-091"
+    name: "Software and Data Integrity Failures"
+    category: "integrity_failures"
+    subcategory: "integrity"
+    count: 80  # 8 batches x 10 examples
+    provider: "claude"
+    languages: ["python", "javascript", "java", "go"]
+    techniques:
+      - "Unsigned code execution"
+      - "Insecure CI/CD pipelines"
+      - "Missing integrity checks"
+      - "Insecure deserialization"
+      - "Auto-update without verification"
+      - "Code injection in CI/CD"
+
+  # ========================================
+  # PHASE 9: A09 Logging/Monitoring Failures (60 examples)
+  # ========================================
+
+  - batch_id: "092-097"
+    name: "Security Logging and Monitoring Failures"
+    category: "logging_failures"
+    subcategory: "logging"
+    count: 60  # 6 batches x 10 examples
+    provider: "openai"
+    languages: ["python", "javascript", "java", "go"]
+    techniques:
+      - "Missing security event logging"
+      - "Log injection"
+      - "Sensitive data in logs"
+      - "Insufficient log retention"
+      - "No alerting on suspicious activity"
+      - "Missing audit trails"
+
+  # ========================================
+  # PHASE 10: A10 Server-Side Request Forgery (50 examples)
+  # ========================================
+
+  - batch_id: "098-102"
+    name: "Server-Side Request Forgery (SSRF)"
+    category: "ssrf"
+    subcategory: "ssrf"
+    count: 50  # 5 batches x 10 examples
+    provider: "claude"
+    languages: ["python", "javascript", "java", "go", "php"]
+    techniques:
+      - "SSRF to internal services"
+      - "SSRF to cloud metadata"
+      - "DNS rebinding"
+      - "URL parser bypasses"
+      - "SSRF via file upload"
+
+  # ========================================
+  # PHASE 11: AI/ML Security Threats (150 examples)
+  # ========================================
+
+  - batch_id: "103-117"
+    name: "AI/ML Security Threats"
+    category: "ai_ml_security"
+    subcategory: "ai_security"
+    count: 150  # 15 batches x 10 examples
+    provider: "claude"  # AI security requires Claude's expertise
+    languages: ["python", "javascript"]
+    techniques:
+      - "Prompt injection"
+      - "Jailbreak attacks"
+      - "Model extraction"
+      - "Data poisoning"
+      - "Adversarial examples"
+      - "Model inversion"
+      - "Membership inference"
+      - "Backdoor attacks"
+      - "RAG poisoning"
+      - "Agent hijacking"
+
+# ========================================
+# Generation Statistics
+# ========================================
+
+statistics:
+  total_target: 1000
+  current_complete: 90
+  remaining: 910
+
+  by_provider:
+    claude: 550  # Complex/advanced categories
+    openai: 360  # Bulk/simpler categories
+
+  by_category:
+    injection: 140
+    auth_failures: 150
+    broken_access_control: 150
+    security_misconfiguration: 120
+    crypto_failures: 100
+    insecure_design: 80
+    vulnerable_components: 80
+    integrity_failures: 80
+    logging_failures: 60
+    ssrf: 50
+    ai_ml_security: 150
+
+  estimated_cost:
+    claude_cost: 66  # $0.12 per example avg
+    openai_cost: 36  # $0.10 per example avg
+    total_cost: 102
+
+  estimated_time:
+    generation: "6-8 hours (API calls)"
+    validation: "2-4 hours (automated)"
+    fixes: "4-6 hours (manual review)"
+    total: "12-18 hours"

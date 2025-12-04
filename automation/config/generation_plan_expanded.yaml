@@ -1,0 +1,326 @@
+# OpenAI Supplementation Plan for Language Gap Coverage
+# Based on coverage analysis showing significant gaps in:
+# - TypeScript (need 65 examples)
+# - Ruby (need 35 examples)
+# - C# (need 34 examples)
+# - Rust (need 29 examples)
+# - Kotlin (need 18 examples)
+# - PHP (need 15 examples)
+#
+# Total: 196 additional examples needed
+# Strategy: Use OpenAI GPT-5.1 for language diversity
+
+batches:
+# TypeScript Focus (65 examples = 7 batches)
+- batch_id: "201"
+  name: "TypeScript SQL Injection"
+  category: "injection"
+  subcategory: "sql"
+  count: 10
+  provider: "openai"
+  languages: ["typescript"]
+  techniques:
+    - "SQL injection in TypeScript ORMs"
+    - "Parameterized queries in TypeORM"
+    - "SQL injection in Prisma"
+    - "Query builder security"
+    - "SQL injection in Node.js TypeScript APIs"
+
+- batch_id: "202"
+  name: "TypeScript XSS Prevention"
+  category: "injection"
+  subcategory: "xss"
+  count: 10
+  provider: "openai"
+  languages: ["typescript"]
+  techniques:
+    - "XSS in React TypeScript components"
+    - "DOMPurify integration"
+    - "CSP headers in Express TypeScript"
+    - "Template injection in Angular"
+    - "XSS in Vue 3 TypeScript"
+
+- batch_id: "203"
+  name: "TypeScript Authentication"
+  category: "auth_failures"
+  subcategory: "authentication"
+  count: 10
+  provider: "openai"
+  languages: ["typescript"]
+  techniques:
+    - "JWT implementation in TypeScript"
+    - "Password hashing with bcrypt"
+    - "OAuth 2.0 in NestJS"
+    - "Session management in Express TypeScript"
+    - "Multi-factor authentication"
+
+- batch_id: "204"
+  name: "TypeScript Authorization"
+  category: "broken_access_control"
+  subcategory: "authorization"
+  count: 10
+  provider: "openai"
+  languages: ["typescript"]
+  techniques:
+    - "RBAC in TypeScript APIs"
+    - "Attribute-based access control"
+    - "GraphQL authorization"
+    - "IDOR prevention"
+    - "File upload authorization"
+
+- batch_id: "205"
+  name: "TypeScript Crypto & Secrets"
+  category: "crypto_failures"
+  subcategory: "cryptography"
+  count: 10
+  provider: "openai"
+  languages: ["typescript"]
+  techniques:
+    - "Encryption with Node.js crypto"
+    - "Secrets management in TypeScript"
+    - "TLS configuration"
+    - "Password storage"
+    - "API key protection"
+
+- batch_id: "206"
+  name: "TypeScript API Security"
+  category: "security_misconfiguration"
+  subcategory: "misconfiguration"
+  count: 10
+  provider: "openai"
+  languages: ["typescript"]
+  techniques:
+    - "CORS configuration"
+    - "Rate limiting in Express"
+    - "Input validation with Zod"
+    - "Error handling and logging"
+    - "Security headers"
+
+- batch_id: "207"
+  name: "TypeScript Dependency Security"
+  category: "vulnerable_components"
+  subcategory: "dependencies"
+  count: 5
+  provider: "openai"
+  languages: ["typescript"]
+  techniques:
+    - "NPM audit and fixes"
+    - "Dependency pinning"
+    - "Supply chain security"
+    - "Package verification"
+    - "Lock file security"
+
+# Ruby Focus (35 examples = 4 batches)
+- batch_id: "208"
+  name: "Ruby on Rails Injection"
+  category: "injection"
+  subcategory: "sql"
+  count: 10
+  provider: "openai"
+  languages: ["ruby"]
+  techniques:
+    - "ActiveRecord SQL injection"
+    - "Parameterized queries in Rails"
+    - "Command injection in Ruby"
+    - "Mass assignment vulnerabilities"
+    - "YAML deserialization"
+
+- batch_id: "209"
+  name: "Ruby Authentication & Sessions"
+  category: "auth_failures"
+  subcategory: "authentication"
+  count: 10
+  provider: "openai"
+  languages: ["ruby"]
+  techniques:
+    - "Devise security configuration"
+    - "Session fixation prevention"
+    - "CSRF protection in Rails"
+    - "Secure cookie configuration"
+    - "JWT in Ruby APIs"
+
+- batch_id: "210"
+  name: "Ruby Authorization & Access Control"
+  category: "broken_access_control"
+  subcategory: "authorization"
+  count: 10
+  provider: "openai"
+  languages: ["ruby"]
+  techniques:
+    - "CanCanCan authorization"
+    - "Pundit policies"
+    - "Strong parameters"
+    - "Direct object reference protection"
+    - "File access control"
+
+- batch_id: "211"
+  name: "Ruby Security Best Practices"
+  category: "security_misconfiguration"
+  subcategory: "misconfiguration"
+  count: 5
+  provider: "openai"
+  languages: ["ruby"]
+  techniques:
+    - "Rails security configuration"
+    - "Secret management"
+    - "SSL/TLS enforcement"
+    - "Content Security Policy"
+    - "Logging sensitive data"
+
+# C# Focus (34 examples = 4 batches)
+- batch_id: "212"
+  name: "C# SQL Injection & Entity Framework"
+  category: "injection"
+  subcategory: "sql"
+  count: 10
+  provider: "openai"
+  languages: ["csharp"]
+  techniques:
+    - "SQL injection in Entity Framework"
+    - "Parameterized queries in ADO.NET"
+    - "LINQ injection prevention"
+    - "Stored procedure security"
+    - "Dynamic SQL dangers"
+
+- batch_id: "213"
+  name: "C# Authentication & Identity"
+  category: "auth_failures"
+  subcategory: "authentication"
+  count: 10
+  provider: "openai"
+  languages: ["csharp"]
+  techniques:
+    - "ASP.NET Core Identity"
+    - "JWT bearer authentication"
+    - "Password hashing with PBKDF2"
+    - "Multi-factor authentication"
+    - "OAuth 2.0 / OpenID Connect"
+
+- batch_id: "214"
+  name: "C# Authorization & Claims"
+  category: "broken_access_control"
+  subcategory: "authorization"
+  count: 9
+  provider: "openai"
+  languages: ["csharp"]
+  techniques:
+    - "Policy-based authorization"
+    - "Claims-based security"
+    - "Role-based access control"
+    - "Resource-based authorization"
+    - "API endpoint protection"
+
+- batch_id: "215"
+  name: "C# Cryptography & Data Protection"
+  category: "crypto_failures"
+  subcategory: "cryptography"
+  count: 5
+  provider: "openai"
+  languages: ["csharp"]
+  techniques:
+    - ".NET Data Protection API"
+    - "AES encryption"
+    - "Secure random generation"
+    - "Certificate validation"
+    - "Secrets management"
+
+# Rust Focus (29 examples = 3 batches)
+- batch_id: "216"
+  name: "Rust Web Security"
+  category: "injection"
+  subcategory: "sql"
+  count: 10
+  provider: "openai"
+  languages: ["rust"]
+  techniques:
+    - "SQL injection prevention with SQLx"
+    - "Diesel ORM security"
+    - "Command injection prevention"
+    - "Input validation"
+    - "Type-safe queries"
+
+- batch_id: "217"
+  name: "Rust Authentication & Cryptography"
+  category: "auth_failures"
+  subcategory: "authentication"
+  count: 10
+  provider: "openai"
+  languages: ["rust"]
+  techniques:
+    - "JWT authentication in Actix/Axum"
+    - "Password hashing with argon2"
+    - "Session management"
+    - "TLS configuration"
+    - "Secure key storage"
+
+- batch_id: "218"
+  name: "Rust Memory & Type Safety"
+  category: "insecure_design"
+  subcategory: "design_flaws"
+  count: 9
+  provider: "openai"
+  languages: ["rust"]
+  techniques:
+    - "Unsafe code auditing"
+    - "Buffer overflow prevention"
+    - "Integer overflow handling"
+    - "Concurrency safety"
+    - "Type-driven security"
+
+# Kotlin Focus (18 examples = 2 batches)
+- batch_id: "219"
+  name: "Kotlin Android Security"
+  category: "injection"
+  subcategory: "sql"
+  count: 10
+  provider: "openai"
+  languages: ["kotlin"]
+  techniques:
+    - "SQL injection in Room database"
+    - "Content provider security"
+    - "Intent validation"
+    - "WebView security"
+    - "Secure data storage"
+
+- batch_id: "220"
+  name: "Kotlin Server-Side Security"
+  category: "auth_failures"
+  subcategory: "authentication"
+  count: 8
+  provider: "openai"
+  languages: ["kotlin"]
+  techniques:
+    - "Ktor authentication"
+    - "Spring Security with Kotlin"
+    - "JWT in Kotlin APIs"
+    - "Encryption and hashing"
+    - "CORS configuration"
+
+# PHP Focus (15 examples = 2 batches)
+- batch_id: "221"
+  name: "Modern PHP Security"
+  category: "injection"
+  subcategory: "sql"
+  count: 10
+  provider: "openai"
+  languages: ["php"]
+  techniques:
+    - "PDO prepared statements"
+    - "Laravel query builder security"
+    - "Command injection prevention"
+    - "File upload security"
+    - "XXE prevention"
+
+- batch_id: "222"
+  name: "PHP Authentication & Sessions"
+  category: "auth_failures"
+  subcategory: "authentication"
+  count: 5
+  provider: "openai"
+  languages: ["php"]
+  techniques:
+    - "Secure session configuration"
+    - "Password hashing with password_hash()"
+    - "Laravel authentication"
+    - "JWT in PHP APIs"
+    - "CSRF protection"

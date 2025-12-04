@@ -1,3 +1,74 @@
+---
+license: apache-2.0
+task_categories:
+- text-generation
+- question-answering
+language:
+- code
+tags:
+- security
+- owasp
+- cve
+- secure-coding
+- vulnerability-detection
+- cybersecurity
+- code-security
+- ai-safety
+size_categories:
+- 1K<n<10K
+pretty_name: OWASP-CVE-Dialogues
+dataset_info:
+  features:
+  - name: id
+    dtype: string
+  - name: metadata
+    struct:
+    - name: lang
+      dtype: string
+    - name: category
+      dtype: string
+    - name: subcategory
+      dtype: string
+    - name: owasp_2021
+      dtype: string
+    - name: cwe
+      dtype: string
+    - name: severity
+      dtype: string
+  - name: context
+    struct:
+    - name: real_world_incident
+      dtype: string
+    - name: impact
+      dtype: string
+    - name: cve
+      dtype: string
+    - name: business_impact
+      dtype: string
+  - name: conversations
+    sequence:
+    - name: from
+      dtype: string
+    - name: value
+      dtype: string
+  splits:
+  - name: train
+    num_examples: 841
+  - name: validation
+    num_examples: 175
+  - name: test
+    num_examples: 193
+configs:
+- config_name: default
+  data_files:
+  - split: train
+    path: consolidated/train.jsonl
+  - split: validation
+    path: consolidated/val.jsonl
+  - split: test
+    path: consolidated/test.jsonl
+---
+
 # OWASP-CVE-Dialogues
 
 <div align="center">

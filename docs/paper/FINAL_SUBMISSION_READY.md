@@ -119,10 +119,12 @@ The SecureCode v2.0 paper is **publication-ready** with all acceptance criteria 
 
 ## Final Polish (2 Quick Fixes)
 
-### Fix #9: Category Taxonomy Footnote ✅
+### Fix #9: Category Taxonomy Footnote ✅ (Updated to OWASP 2025)
 **Added**: Section 3.3 footnote explaining OWASP formal names (paper) vs. internal slugs (canonical_counts.json)
 
-**Text Added**: "*Note: The paper uses OWASP's formal category names (e.g., 'A07:2021 Identification and Authentication Failures') for presentation clarity, while `canonical_counts.json` uses internal category slugs (e.g., 'authentication') for programmatic processing. Both taxonomies reference the same underlying examples.*"
+**Text Added** (Updated December 2025): "*Note: The paper uses OWASP's formal category names (e.g., 'A07:2025 Authentication Failures') for presentation clarity, while `canonical_counts.json` uses internal category slugs (e.g., 'authentication') for programmatic processing. Both taxonomies reference the same underlying examples.*"
+
+**Migration Note**: Originally referenced A07:2021 "Identification and Authentication Failures"; updated to A07:2025 "Authentication Failures" per OWASP Top 10:2025 Release Candidate (November 2025).
 
 ---
 

@@ -5,6 +5,12 @@
 
 ---
 
+## OWASP Taxonomy Update Note
+
+**IMPORTANT**: This review was conducted using OWASP Top 10:2021 taxonomy. Subsequent updates (December 2025) aligned the dataset and all documentation with **OWASP Top 10:2025 Release Candidate** (released November 2025). See `OWASP_2021_vs_2025_Comparison.md` for complete migration details.
+
+---
+
 ## Executive Summary
 
 This document tracks the third round of reviewer-proofing fixes addressing critical schema inconsistencies, reproducibility gaps, and repetition reduction. All 10 fixes have been successfully applied.

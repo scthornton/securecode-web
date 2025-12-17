@@ -184,7 +184,7 @@ The validator accepts metadata in multiple formats:
   "cve_id": "CVE-2024-1234",
   "severity": "HIGH",
   "language": "python",
-  "owasp_category": "A03:2021-Injection",
+  "owasp_category": "A05:2025-Injection",
   "incident_year": 2024,
   "business_impact": "Data breach..."
 }
@@ -196,7 +196,7 @@ The validator accepts metadata in multiple formats:
   "metadata": {
     "severity": "HIGH",
     "lang": "python",
-    "owasp_2021": "A03:2021-Injection",
+    "owasp_2025": "A05:2025-Injection",
     "created": "2024-01-15"
   },
   "context": {
@@ -209,19 +209,20 @@ The validator accepts metadata in multiple formats:
 
 ### OWASP Categories
 
-Valid categories (OWASP 2021 Top 10):
-- `A01:2021-Broken Access Control`
-- `A02:2021-Cryptographic Failures`
-- `A03:2021-Injection`
-- `A04:2021-Insecure Design`
-- `A05:2021-Security Misconfiguration`
-- `A06:2021-Vulnerable and Outdated Components`
-- `A07:2021-Identification and Authentication Failures`
-- `A08:2021-Software and Data Integrity Failures`
-- `A09:2021-Security Logging and Monitoring Failures`
-- `A10:2021-Server-Side Request Forgery (SSRF)` or `A10:2021-Server-Side Request Forgery`
+Valid categories (OWASP Top 10:2025 Release Candidate):
+- `A01:2025-Broken Access Control` (includes merged SSRF from A10:2021)
+- `A02:2025-Security Misconfiguration`
+- `A03:2025-Software Supply Chain Failures` (formerly A06:2021 Vulnerable Components)
+- `A04:2025-Cryptographic Failures`
+- `A05:2025-Injection`
+- `A06:2025-Insecure Design`
+- `A07:2025-Authentication Failures` (formerly "Identification and Authentication Failures")
+- `A08:2025-Software or Data Integrity Failures`
+- `A09:2025-Security Logging & Alerting Failures`
 - `AI/ML Security Threats` (custom category)
 - `Unknown` (edge cases)
+
+**Note**: A10:2021 SSRF has been merged into A01:2025 Broken Access Control per OWASP Top 10:2025 taxonomy.
 
 ### Severity Levels
 

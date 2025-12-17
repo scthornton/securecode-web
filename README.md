@@ -401,12 +401,28 @@ Always conduct security testing only on authorized systems.
 
 ---
 
+## 🏛️ OWASP Taxonomy
+
+SecureCode v2 follows the **OWASP Top 10:2025 Release Candidate** taxonomy (released November 2025). The dataset was originally created using OWASP 2021 categories and subsequently remapped to align with current industry standards.
+
+**Key changes from OWASP 2021:**
+- A10:2021 SSRF merged into A01:2025 Broken Access Control
+- A06:2021 renamed to A03:2025 Software Supply Chain Failures (expanded scope)
+- Several categories renumbered to reflect updated threat priorities
+- A05:2021 Security Misconfiguration elevated to A02:2025 (now #2 priority)
+
+**Coverage:** All 9 OWASP Top 10:2025 categories plus AI/ML Security (custom category)
+
+See `taxonomy.yaml` for complete category mappings and CWE references.
+
+---
+
 ## 🙏 Acknowledgments
 
 - Security researchers and the CVE community
 - Open-source framework maintainers
 - Contributors and reviewers
-- OWASP Foundation
+- OWASP Foundation (OWASP Top 10:2025 taxonomy)
 - MITRE Corporation (CWE/CVE)
 
 ---

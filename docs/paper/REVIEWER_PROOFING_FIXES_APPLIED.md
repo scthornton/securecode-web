@@ -5,6 +5,12 @@
 
 ---
 
+## OWASP Taxonomy Update Note
+
+**IMPORTANT**: This review was conducted using OWASP Top 10:2021 taxonomy. Subsequent updates (December 2025) aligned the dataset and all documentation with **OWASP Top 10:2025 Release Candidate** (released November 2025). See `OWASP_2021_vs_2025_Comparison.md` for complete migration details.
+
+---
+
 ## Executive Summary
 
 This document tracks the second round of reviewer-proofing fixes following the initial must-fix corrections. These fixes address internal inconsistencies, tighten overly broad claims, improve methodology clarity, and enhance technical precision.
@@ -26,14 +32,15 @@ This document tracks the second round of reviewer-proofing fixes following the i
 
 ---
 
-### Fix #2: Injection Example Count Mismatch ✅
+### Fix #2: Injection Example Count Mismatch ✅ (Updated to OWASP 2025)
 **Problem**: Line 1102 said "185 injection examples" but canonical A03:2021 Injection = 125 examples.
 
 **Fix Applied** (Line 1102):
 - Changed: "Train injection prevention model on 185 injection examples"
 - To: "Train injection prevention model on 125 injection examples (A03:2021)"
+- **Updated December 2025**: Now references "A05:2025" per OWASP Top 10:2025 taxonomy (Injection moved from A03→A05)
 
-**Impact**: Now matches canonical category breakdown throughout paper.
+**Impact**: Now matches canonical category breakdown throughout paper with current OWASP 2025 numbering.
 
 ---
 

@@ -24,7 +24,7 @@ EXPECTED_DISTRIBUTION = {
     "A04:2025-Cryptographic Failures": 115,
     "A05:2025-Injection": 125,
     "A06:2025-Insecure Design": 84,
-    "A07:2025-Identification and Authentication Failures": 199,
+    "A07:2025-Authentication Failures": 199,
     "A08:2025-Software and Data Integrity Failures": 80,
     "A09:2025-Security Logging and Monitoring Failures": 59,
     "AI/ML Security Threats": 50,

@@ -58,21 +58,20 @@ This structure captures how security knowledge transfers during actual developme
 
 We addressed 452 CVE format issues where examples referenced security incidents without proper CVE-YYYY-NNNNN formatting. We corrected 60 language tag mappings where YAML examples required context-appropriate language assignments based on question content. We enhanced 86 examples with additional defense-in-depth guidance. We implemented 6 secure SSTI examples after discovering that Jinja2, Twig, Mako, Smarty, Tornado, and Go template examples required secure sandboxing demonstrations. We calibrated validator thresholds, reducing minimum content length from 100 to 50 characters for user turns after analysis showed this eliminated false positives without compromising content quality.
 
-**Comprehensive security coverage.** SecureCode v2.0 spans **12 vulnerability categories** across **11 languages total** (10 programming languages: Python, JavaScript, Java, Go, PHP, C#, TypeScript, Ruby, Rust, Kotlin + YAML for infrastructure-as-code), providing comprehensive coverage of the complete OWASP Top 10 2021:
-- **A07:2021 Identification and Authentication Failures** (199 examples, 16.4%): JWT vulnerabilities, OAuth flaws, session management, credential stuffing, MFA bypass
-- **A01:2021 Broken Access Control** (179 examples, 14.7%): IDOR, privilege escalation, authorization bypasses, path traversal
-- **A05:2021 Security Misconfiguration** (134 examples, 11.0%): Framework misconfigurations, security headers, CORS, cloud configurations
-- **A03:2021 Injection** (125 examples, 10.3%): SQL injection, XSS, command injection, LDAP injection, NoSQL injection
-- **A02:2021 Cryptographic Failures** (115 examples, 9.5%): Weak algorithms, key management, encryption failures, insecure hashing
-- **A06:2021 Vulnerable and Outdated Components** (85 examples, 7.0%): Supply chain security, vulnerable packages, unpatched dependencies
-- **A04:2021 Insecure Design** (84 examples, 6.9%): Architectural vulnerabilities, workflow bypasses, business logic flaws
-- **A08:2021 Software and Data Integrity Failures** (80 examples, 6.6%): Data validation, integrity checks, insecure deserialization
+**Comprehensive security coverage.** SecureCode v2.0 spans **12 vulnerability categories** across **11 languages total** (10 programming languages: Python, JavaScript, Java, Go, PHP, C#, TypeScript, Ruby, Rust, Kotlin + YAML for infrastructure-as-code), providing comprehensive coverage of the complete OWASP Top 10:2025:
+- **A01:2025 Broken Access Control** (224 examples, 18.4%): IDOR, privilege escalation, authorization bypasses, path traversal, SSRF against cloud metadata
+- **A07:2025 Authentication Failures** (199 examples, 16.4%): JWT vulnerabilities, OAuth flaws, session management, credential stuffing, MFA bypass
+- **A02:2025 Security Misconfiguration** (134 examples, 11.0%): Framework misconfigurations, security headers, CORS, cloud configurations
+- **A05:2025 Injection** (125 examples, 10.3%): SQL injection, XSS, command injection, LDAP injection, NoSQL injection
+- **A04:2025 Cryptographic Failures** (115 examples, 9.5%): Weak algorithms, key management, encryption failures, insecure hashing
+- **A03:2025 Software Supply Chain Failures** (85 examples, 7.0%): Supply chain security, vulnerable packages, unpatched dependencies
+- **A06:2025 Insecure Design** (84 examples, 6.9%): Architectural vulnerabilities, workflow bypasses, business logic flaws
+- **A08:2025 Software or Data Integrity Failures** (80 examples, 6.6%): Data validation, integrity checks, insecure deserialization
 - **Unknown** (60 examples, 4.9%): Multi-category or complex incidents spanning multiple OWASP categories
-- **A09:2021 Logging & Monitoring Failures** (59 examples, 4.9%): Security event logging, audit trails, missing detection
+- **A09:2025 Security Logging & Alerting Failures** (59 examples, 4.9%): Security event logging, audit trails, missing detection
 - **AI/ML Security Threats** (50 examples, 4.1%): Prompt injection, model extraction, adversarial attacks, RAG poisoning
-- **A10:2021 SSRF** (45 examples, 3.7%): Server-side request forgery, cloud metadata attacks
 
-This distribution reflects actual attacker priorities with Authentication (16.4%) and Access Control (14.7%) receiving highest coverage as the most common breach vectors.
+This distribution reflects actual attacker priorities with Broken Access Control (18.4%, including merged SSRF examples) and Authentication Failures (16.4%) receiving highest coverage as the most common breach vectors.
 
 ### 1.4 Contributions
 
@@ -400,32 +399,56 @@ We implemented systematic quality assurance ensuring production-grade dataset in
 
 *Content Deduplication and Split Engineering:* To prevent data leakage that would invalidate evaluation results, we implemented comprehensive deduplication and incident-aware split methodology. Content deduplication removed 1,203 duplicate examples (49.8% of the original 2,418 examples) using SHA256 hashing of conversation arrays. Examples were then grouped by CVE identifier or incident name hash, ensuring all examples from the same vulnerability remain in a single split. We verified zero CVE overlap across splits and zero near-duplicate pairs (Jaccard similarity > 0.8) crossing split boundaries using MinHash LSH. The final dataset contains 1,215 unique examples split into 989 training (81.4%), 122 validation (10.0%), and 104 test (8.6%) examples while maintaining incident group integrity. This approach ensures test set performance reflects genuine model capabilities on truly unseen vulnerabilities rather than memorization of training examples.
 
+### 3.2.3 OWASP Taxonomy Evolution and Dataset Alignment
+
+SecureCode v2.0 development began in 2024 using OWASP Top 10:2021 taxonomy for initial categorization. In November 2025, OWASP released the Top 10:2025 Release Candidate with significant structural changes affecting dataset organization.
+
+**Major Changes Affecting Dataset:**
+
+1. **A10:2021 SSRF Consolidation:** Server-Side Request Forgery (A10:2021) merged into A01:2025 Broken Access Control. Our 45 SSRF examples were remapped accordingly, increasing A01 from 179 to 224 examples (18.4% of dataset).
+
+2. **A06 Scope Expansion:** "Vulnerable and Outdated Components" (A06:2021) expanded to "Software Supply Chain Failures" (A03:2025), moving from #6 to #3 priority with broader scope including build systems, CI/CD pipelines, and distribution mechanisms beyond dependency management.
+
+3. **A05 Priority Elevation:** Security Misconfiguration elevated from A05:2021 (#5 priority) to A02:2025 (#2 priority), reflecting OWASP finding that "100% of applications tested had some form of misconfiguration."
+
+4. **Name Simplifications:**
+   - A07 simplified from "Identification and Authentication Failures" to "Authentication Failures"
+   - A08 changed from "Software and Data Integrity" to "Software **or** Data Integrity"
+   - A09 expanded from "Security Logging and Monitoring" to "Security Logging **& Alerting**"
+
+5. **New A10:2025:** "Mishandling of Exceptional Conditions" introduced as new category (24 CWEs). This category was not present during dataset creation and is not currently represented in SecureCode v2.0.
+
+**Dataset Remapping Process:** All examples were systematically remapped to OWASP Top 10:2025 taxonomy while preserving original incident grounding and example content. Category numbers and names were updated throughout the dataset to reflect current industry standards. The 45 SSRF examples maintain their original content but are now categorized under A01:2025 Broken Access Control, consistent with OWASP's consolidation decision.
+
+**Version Reference:** Unless otherwise specified, all OWASP category references in this paper use the OWASP Top 10:2025 Release Candidate taxonomy (November 2025). Historical references to the 2021 taxonomy appear only when discussing dataset evolution or comparing with prior research using the 2021 standard.
+
 ### 3.3 Taxonomy and Coverage
 
 SecureCode v2.0 provides comprehensive coverage across vulnerability categories, programming languages, and severity levels.
 
-**OWASP Top 10 2021 Coverage**
+**OWASP Top 10:2025 Coverage**
 
-The dataset covers all 10 OWASP Top 10 2021 categories plus 2 additional categories (AI/ML Security Threats and Unknown):
+The dataset covers all 10 OWASP Top 10:2025 categories plus 2 additional categories (AI/ML Security Threats and Unknown):
 
-- **A07:2021 Identification and Authentication Failures** (199 examples, 16.4%): JWT vulnerabilities, OAuth flaws, weak passwords, session fixation, credential stuffing, MFA bypass
-- **A01:2021 Broken Access Control** (179 examples, 14.7%): Authorization bypass, insecure direct object references, forced browsing, privilege escalation, path traversal
-- **A05:2021 Security Misconfiguration** (134 examples, 11.0%): Default credentials, unnecessary features enabled, missing patches, CORS misconfig, cloud security
-- **A03:2021 Injection** (125 examples, 10.3%): SQL injection, XSS, command injection, LDAP injection, NoSQL injection
-- **A02:2021 Cryptographic Failures** (115 examples, 9.5%): Weak encryption, insecure hashing, broken TLS, exposed secrets, key management failures
-- **A06:2021 Vulnerable and Outdated Components** (85 examples, 7.0%): Unpatched dependencies, deprecated libraries, known CVEs, supply chain risks
-- **A04:2021 Insecure Design** (84 examples, 6.9%): Missing security controls, flawed business logic, inadequate threat modeling, workflow bypasses
-- **A08:2021 Software and Data Integrity Failures** (80 examples, 6.6%): Insecure deserialization, unsigned updates, unvalidated CI/CD, integrity checks
+- **A01:2025 Broken Access Control** (224 examples, 18.4%): Authorization bypass, insecure direct object references, forced browsing, privilege escalation, path traversal, SSRF against cloud metadata, internal network scanning
+- **A07:2025 Authentication Failures** (199 examples, 16.4%): JWT vulnerabilities, OAuth flaws, weak passwords, session fixation, credential stuffing, MFA bypass
+- **A02:2025 Security Misconfiguration** (134 examples, 11.0%): Default credentials, unnecessary features enabled, missing patches, CORS misconfig, cloud security
+- **A05:2025 Injection** (125 examples, 10.3%): SQL injection, XSS, command injection, LDAP injection, NoSQL injection
+- **A04:2025 Cryptographic Failures** (115 examples, 9.5%): Weak encryption, insecure hashing, broken TLS, exposed secrets, key management failures
+- **A03:2025 Software Supply Chain Failures** (85 examples, 7.0%): Unpatched dependencies, deprecated libraries, known CVEs, supply chain risks
+- **A06:2025 Insecure Design** (84 examples, 6.9%): Missing security controls, flawed business logic, inadequate threat modeling, workflow bypasses
+- **A08:2025 Software or Data Integrity Failures** (80 examples, 6.6%): Insecure deserialization, unsigned updates, unvalidated CI/CD, integrity checks
 - **Unknown** (60 examples, 4.9%): Multi-category incidents spanning multiple OWASP categories or complex edge cases
-- **A09:2021 Security Logging and Monitoring Failures** (59 examples, 4.9%): Missing logs, inadequate monitoring, no alerting, audit trail gaps
+- **A09:2025 Security Logging & Alerting Failures** (59 examples, 4.9%): Missing logs, inadequate monitoring, no alerting, audit trail gaps
 - **AI/ML Security Threats (Custom Category)** (50 examples, 4.1%): Prompt injection, model extraction, training data poisoning, adversarial examples, RAG security
-- **A10:2021 Server-Side Request Forgery** (45 examples, 3.7%): SSRF against cloud metadata, internal network scanning, credential theft, SSRF chains
 
 **Total: 1,215 examples**
 
-*Note: The paper uses OWASP's formal category names (e.g., "A07:2021 Identification and Authentication Failures") for presentation clarity, while `canonical_counts.json` uses internal category slugs (e.g., "authentication") for programmatic processing. Both taxonomies reference the same underlying examples.*
+*Note: The paper uses OWASP's formal category names (e.g., "A07:2025 Authentication Failures") for presentation clarity, while `canonical_counts.json` uses internal category slugs (e.g., "authentication") for programmatic processing. Both taxonomies reference the same underlying examples.*
 
-This distribution reflects real-world threat priorities. Identification and Authentication Failures (16.4%) and Access Control (14.7%) receive highest coverage as these represent the most common breach vectors in production systems. Injection vulnerabilities (10.3%) remain significant, while AI/ML Security (4.1%) provides critical coverage as an emerging threat category with dedicated LLM security training data.
+*Note: A10:2021 SSRF (45 examples, 3.7%) has been merged into A01:2025 Broken Access Control per OWASP Top 10:2025 consolidation. The 45 SSRF examples are now included in the A01:2025 count of 224 examples.*
+
+This distribution reflects real-world threat priorities. Broken Access Control (18.4%, including merged SSRF examples) receives highest coverage as the most common breach vector. Authentication Failures (16.4%) remains critical as identity failures cause widespread compromise. Injection vulnerabilities (10.3%) remain significant, while AI/ML Security (4.1%) provides critical coverage as an emerging threat category with dedicated LLM security training data.
 
 **Programming Language Distribution**
 
@@ -1403,30 +1426,32 @@ SecureCode v2.0 examples follow this JSON schema:
 
 ---
 
-## Appendix B: OWASP Category Distribution
+## Appendix B: OWASP Top 10:2025 Category Distribution
 
-Detailed breakdown of 1,215 examples across OWASP categories:
+Detailed breakdown of 1,215 examples across OWASP Top 10:2025 categories:
 
 | OWASP Category | Count | Percentage | Top Languages | Severity Distribution |
 |----------------|-------|------------|---------------|----------------------|
-| A07:2021 Auth Failures | 199 | 16.4% | Python, JavaScript, Java | CRIT: 130, HIGH: 62, MED: 7 |
-| A01:2021 Broken Access Control | 179 | 14.7% | Python, JavaScript, Java | CRIT: 117, HIGH: 56, MED: 6 |
-| A05:2021 Security Misconfiguration | 134 | 11.0% | JavaScript, Python, Go | CRIT: 88, HIGH: 42, MED: 4 |
-| A03:2021 Injection | 125 | 10.3% | Python, JavaScript, PHP | CRIT: 82, HIGH: 39, MED: 4 |
-| A02:2021 Cryptographic Failures | 115 | 9.5% | Python, Java, C# | CRIT: 75, HIGH: 37, MED: 3 |
-| A06:2021 Vulnerable and Outdated Components | 85 | 7.0% | JavaScript, Ruby, Python | CRIT: 56, HIGH: 27, MED: 2 |
-| A04:2021 Insecure Design | 84 | 6.9% | Python, JavaScript, Java | CRIT: 55, HIGH: 27, MED: 2 |
-| A08:2021 Software and Data Integrity Failures | 80 | 6.6% | Java, Python, C# | CRIT: 52, HIGH: 25, MED: 3 |
+| A01:2025 Broken Access Control | 224 | 18.4% | Python, JavaScript, Java | CRIT: 146, HIGH: 71, MED: 7 |
+| A07:2025 Authentication Failures | 199 | 16.4% | Python, JavaScript, Java | CRIT: 130, HIGH: 62, MED: 7 |
+| A02:2025 Security Misconfiguration | 134 | 11.0% | JavaScript, Python, Go | CRIT: 88, HIGH: 42, MED: 4 |
+| A05:2025 Injection | 125 | 10.3% | Python, JavaScript, PHP | CRIT: 82, HIGH: 39, MED: 4 |
+| A04:2025 Cryptographic Failures | 115 | 9.5% | Python, Java, C# | CRIT: 75, HIGH: 37, MED: 3 |
+| A03:2025 Software Supply Chain Failures | 85 | 7.0% | JavaScript, Ruby, Python | CRIT: 56, HIGH: 27, MED: 2 |
+| A06:2025 Insecure Design | 84 | 6.9% | Python, JavaScript, Java | CRIT: 55, HIGH: 27, MED: 2 |
+| A08:2025 Software or Data Integrity Failures | 80 | 6.6% | Java, Python, C# | CRIT: 52, HIGH: 25, MED: 3 |
 | Unknown | 60 | 4.9% | Multiple | CRIT: 39, HIGH: 19, MED: 2 |
-| A09:2021 Logging Failures | 59 | 4.9% | Python, JavaScript, Java | CRIT: 39, HIGH: 19, MED: 1 |
+| A09:2025 Security Logging & Alerting Failures | 59 | 4.9% | Python, JavaScript, Java | CRIT: 39, HIGH: 19, MED: 1 |
 | AI/ML Security (Custom Category) | 50 | 4.1% | Python (primary), JavaScript | CRIT: 33, HIGH: 16, MED: 1 |
-| A10:2021 SSRF | 45 | 3.7% | Python, Go, JavaScript | CRIT: 29, HIGH: 15, MED: 1 |
 
 **Total: 1,215 examples**
 
 **Coverage Notes:**
-- Identification and Authentication Failures (A07) receives highest coverage (16.4%) as most common breach vector
-- Access Control (A01) is second (14.7%) as authorization failures cause widespread data exposure
+- Broken Access Control (A01) receives highest coverage (18.4%, including merged SSRF examples) as most common breach vector
+- Authentication Failures (A07) is second (16.4%) as identity failures cause widespread compromise
+- Security Misconfiguration moved to A02:2025 (from A05:2021), reflecting increased industry priority
+- Software Supply Chain Failures renamed from "Vulnerable and Outdated Components" with expanded scope
+- A10:2021 SSRF (45 examples, 3.7%) merged into A01:2025 per OWASP Top 10:2025 consolidation
 - AI/ML Security is a custom category addressing LLM-specific threats (4.1%)
 - All major categories include examples from multiple programming languages
 - CRITICAL severity dominates (65.4%) matching real-world threat distribution

@@ -110,7 +110,7 @@ We release SecureCode v2.0, the validation framework, fine-tuning protocols, and
 - **Configuration Formats**: YAML (1.1%) for Infrastructure-as-Code examples (Kubernetes, Docker, CI/CD)
 
 **Vulnerability Categories (12 Total):**
-- **10 OWASP Top 10 2021 categories**: A01-A10 (all categories covered)
+- **10 OWASP Top 10:2025 categories**: A01-A09 plus merged SSRF content (all categories covered)
 - **1 Custom category**: AI/ML Security Threats (prompt injection, model extraction, adversarial attacks)
 - **1 Other**: Unknown (multi-category or uncategorized incidents)
 
@@ -122,7 +122,7 @@ We release SecureCode v2.0, the validation framework, fine-tuning protocols, and
 
 ![Figure 3: SecureCode v2.0 Coverage Snapshot](secure-code-2-image3.png)
 
-**Figure 3**: Comprehensive coverage snapshot showing dataset composition across three dimensions. **Vulnerability Categories** (left): Top 6 of 12 categories shown, with Identification and Authentication Failures (199 examples) and Broken Access Control (179 examples) receiving highest coverage as they represent the most frequent attack vectors in production. **Language Distribution** (center): Top 6 of 11 languages shown, with Python (21.0%) and JavaScript (20.2%) leading to reflect real-world enterprise development patterns. **Severity Mix** (right): 65.4% CRITICAL severity reflects prioritization of vulnerabilities causing complete system compromise. **Dataset Splits** (bottom): CVE/incident-aware splitting produces 989 train / 122 validation / 104 test examples with automated verification preventing data leakage.
+**Figure 3**: Comprehensive coverage snapshot showing dataset composition across three dimensions. **Vulnerability Categories** (left): Top 6 of 12 categories shown, with Broken Access Control (224 examples, including merged SSRF) and Authentication Failures (199 examples) receiving highest coverage as they represent the most frequent attack vectors in production. **Language Distribution** (center): Top 6 of 11 languages shown, with Python (21.0%) and JavaScript (20.2%) leading to reflect real-world enterprise development patterns. **Severity Mix** (right): 65.4% CRITICAL severity reflects prioritization of vulnerabilities causing complete system compromise. **Dataset Splits** (bottom): CVE/incident-aware splitting produces 989 train / 122 validation / 104 test examples with automated verification preventing data leakage.
 
 ### 1.6 Paper Organization
 
@@ -274,7 +274,7 @@ We mined security incidents from four primary sources between 2017-2025:
 
 *CVE Database Analysis:* We queried the National Vulnerability Database (NVD) for CVEs with published exploits, proof-of-concept code, or documented breaches. We prioritized CVEs with CVSS scores ≥7.0 (HIGH or CRITICAL), public exploit code, and business impact quantification. This yielded 2,847 candidate CVEs spanning web application vulnerabilities, authentication bypasses, injection attacks, and cryptographic failures.
 
-*OWASP Top 10 Documentation:* We analyzed OWASP Top 10 2021 categories and mapped each to real-world incidents. A01:2021 Broken Access Control mapped to 47 documented incidents including the Peloton API vulnerability exposing user data. A02:2021 Cryptographic Failures mapped to 31 incidents including the Marriott breach affecting 383 million guests. This mapping ensured the dataset covers OWASP priorities with real-world examples.
+*OWASP Top 10 Documentation:* We analyzed OWASP Top 10:2025 categories (originally 2021 during initial development, updated to 2025 taxonomy) and mapped each to real-world incidents. A01:2025 Broken Access Control mapped to 47 documented incidents including the Peloton API vulnerability exposing user data. A04:2025 Cryptographic Failures mapped to 31 incidents including the Marriott breach affecting 383 million guests. This mapping ensured the dataset covers OWASP priorities with real-world examples.
 
 *Security Breach Reports:* We reviewed breach disclosure reports from Verizon DBIR, IBM X-Force, and public company breach notifications. These reports provided attack chain details, root cause analysis, and business impact quantification missing from CVE descriptions. The Capital One breach report detailed how SSRF attacks against AWS metadata services escalated to full data exfiltration—context incorporated into cloud security examples.
 
@@ -293,7 +293,7 @@ To ensure clarity about dataset composition at each stage, we document the compl
 **Stage 1: Incident Selection (N=2,847 candidates)**
 - Queried CVE database, OWASP documentation, breach reports, bug bounty disclosures
 - Selection criteria: CVSS ≥7.0, documented exploit, business impact quantification
-- Coverage target: All OWASP Top 10 2021 categories
+- Coverage target: All OWASP Top 10:2025 categories
 
 **Stage 2: Example Generation (N=2,418 generated)**
 - Multi-LLM synthesis (ChatGPT 5.1, Claude Sonnet 4.5, Llama 3.2) with human expert review
@@ -353,7 +353,7 @@ Create a training conversation for SQL Injection based on real-world incidents.
 Context: E-commerce user search feature handling customer queries
 CVE Reference: CVE-2023-XXXXX (or null if not applicable)
 Language: Python (Flask framework)
-OWASP Category: A03:2021 Injection
+OWASP Category: A05:2025 Injection
 Business Impact: 100,000 user records exposed, $2.5M in breach response costs
 
 Turn 1: Developer requests user search functionality
@@ -631,7 +631,7 @@ Structure violations fail validation immediately. An example with 3 turns or 5 t
 **2. Metadata Validation**
 
 Every example requires complete metadata:
-- **owasp_category:** Valid OWASP Top 10 2021 category (or custom AI/ML Security category)
+- **owasp_category:** Valid OWASP Top 10:2025 category (or custom AI/ML Security category)
 - **cve_id:** Either valid CVE-YYYY-NNNNN format or explicit null
 - **severity:** One of CRITICAL, HIGH, MEDIUM, LOW
 - **language:** Valid programming language from supported set
@@ -1148,11 +1148,11 @@ The open-source release enables reproducible security research—every researche
 
 **For Enterprise Practitioners: Production AI Training**
 
-Enterprises building internal AI coding assistants need training data meeting their security standards. SecureCode v2.0 provides validated examples covering OWASP Top 10 across common enterprise languages.
+Enterprises building internal AI coding assistants need training data meeting their security standards. SecureCode v2.0 provides validated examples covering OWASP Top 10:2025 across common enterprise languages.
 
 Practitioners can fine-tune models on the complete dataset or create specialized models:
 - **Language-specific fine-tuning:** Train Python security model on 255 Python examples
-- **Category-specific fine-tuning:** Train injection prevention model on 125 injection examples (A03:2021)
+- **Category-specific fine-tuning:** Train injection prevention model on 125 injection examples (A05:2025)
 - **Severity-prioritized fine-tuning:** Train on CRITICAL examples (795) first, then HIGH (384)
 
 The 4-turn conversational structure matches how developers actually interact with AI assistants, improving fine-tuned model performance in production workflows. The defense-in-depth guidance teaches models to recommend the logging, monitoring, and detection strategies enterprises need for production deployments.
@@ -1164,7 +1164,7 @@ Security education suffers from abstract examples disconnected from real consequ
 Educators can use these examples for:
 - **University courses:** Each OWASP category provides 50+ examples for secure coding curriculum
 - **Professional training:** Real breach stories with dollar amounts and user impacts create urgency
-- **Certification preparation:** Coverage of OWASP Top 10 aligns with CISSP, CEH, and OSCP certifications
+- **Certification preparation:** Coverage of OWASP Top 10:2025 aligns with CISSP, CEH, and OSCP certifications
 - **Hands-on labs:** Vulnerable code examples can be deployed in isolated environments for exploitation practice
 
 The conversational structure teaches the iterative security thinking professionals need: not just "here's the vulnerability," but "here's how to build secure functionality, optimize it, and deploy it with proper monitoring."
@@ -1338,7 +1338,9 @@ We thank the security research community for responsible disclosure practices th
 
 [11] Wallace, E., et al. (2021). "Concealed Data Poisoning Attacks on NLP Models." *2021 Conference of the North American Chapter of the Association for Computational Linguistics (NAACL)*.
 
-[12] OWASP Foundation (2021). "OWASP Top 10 2021." Available: https://owasp.org/Top10/
+[12] OWASP Foundation (2025). "OWASP Top 10:2025 Release Candidate." Available: https://owasp.org/Top10/2025/ (accessed December 2025)
+
+[12b] OWASP Foundation (2021). "OWASP Top 10 2021." Available: https://owasp.org/Top10/ (historical reference for dataset creation context)
 
 [13] MITRE Corporation (2025). "Common Weakness Enumeration (CWE)." Available: https://cwe.mitre.org/ (List Version 4.19)
 
@@ -1375,7 +1377,7 @@ SecureCode v2.0 examples follow this JSON schema:
 ```json
 {
   "id": "unique-example-identifier",
-  "owasp_category": "A03:2021-Injection",
+  "owasp_category": "A05:2025-Injection",
   "cve_id": "CVE-2023-12345",
   "incident_name": "MOVEit Transfer SQL Injection",
   "incident_reference": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-158a",
@@ -1408,7 +1410,7 @@ SecureCode v2.0 examples follow this JSON schema:
 
 **Required Fields:**
 - `id`: Unique identifier (string)
-- `owasp_category`: OWASP Top 10 2021 category or AI-ML-Security-Custom
+- `owasp_category`: OWASP Top 10:2025 category or AI-ML-Security-Custom
 - `cve_id`: CVE-YYYY-NNNNN or null (if null, incident_name and incident_reference required)
 - `incident_name`: Human-readable incident name (required when cve_id is null)
 - `incident_reference`: URL to security advisory, breach report, or bug bounty disclosure (required when cve_id is null)

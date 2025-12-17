@@ -97,7 +97,7 @@
         },
         "year": {
           "type": "integer",
-          "minimum": 2020,
+          "minimum": 2017,
           "maximum": 2025,
           "description": "Year of incident"
         }

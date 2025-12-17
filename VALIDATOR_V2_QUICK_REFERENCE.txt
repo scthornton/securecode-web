@@ -1,0 +1,138 @@
+================================================================================
+VALIDATOR V2.0 - QUICK REFERENCE CARD
+================================================================================
+
+FILE: validate_contributing_compliance_v2.py
+
+BASIC USAGE
+-----------
+python validate_contributing_compliance_v2.py consolidated/train.jsonl
+
+OPTIONS
+-------
+--strict              Treat warnings as failures
+--report FILE         Save JSON report to FILE
+--quiet               Suppress progress output
+--no-enhanced         Disable enhanced validators
+--max-failures N      Show max N failures (default: 10)
+
+VALIDATION CHECKS (9 total)
+----------------------------
+CORE (required):
+  ✓ structure          4-turn conversation (user/assistant/user/assistant)
+  ✓ cve_format         CVE-YYYY-NNNN with 4+ digits (or null)
+  ✓ metadata           Required fields present and valid
+  ✓ language           Supported programming language
+  ✓ content_length     Min 50 chars (user), 100 chars (assistant)
+  ✓ incident_grounding Real-world incident when cve_id is null
+
+ENHANCED (warnings):
+  ⚠ turn2_sections     Vulnerable/attack/secure code sections
+  ⚠ turn4_operational  Logging/monitoring/detection keywords
+  ⚠ example_id         Unique identifier present
+
+EXIT CODES
+----------
+0 = All passed (or warnings only in non-strict mode)
+1 = Failures detected (or warnings in strict mode)
+
+QUICK FIXES
+-----------
+Empty CVE string → null:
+  sed -i.bak 's/"cve": ""/"cve": null/g' dataset.jsonl
+
+Find failures:
+  python validate_contributing_compliance_v2.py dataset.jsonl --report out.json
+  grep -i '"result": "FAIL"' out.json
+
+CURRENT DATASET STATUS (2025-12-15)
+------------------------------------
+train.jsonl: 1,934 examples, 98.9% pass (4 failures, 18 warnings)
+test.jsonl:  241 examples, 98.8% pass (0 failures, 3 warnings)
+val.jsonl:   243 examples, 98.8% pass (0 failures, 3 warnings)
+
+KNOWN ISSUES
+------------
+Training set has 4 CVE format failures (empty strings):
+  Examples #263, #965, #1102, #1921
+  Fix: Replace "cve": "" with "cve": null
+
+EXAMPLES
+--------
+# Validate all splits
+for split in train test val; do
+    python validate_contributing_compliance_v2.py consolidated/${split}.jsonl --quiet
+done
+
+# Strict validation for pre-publication
+python validate_contributing_compliance_v2.py dataset.jsonl --strict
+
+# Generate report for CI/CD
+python validate_contributing_compliance_v2.py dataset.jsonl --report report.json
+if [ $? -eq 0 ]; then echo "PASS"; else echo "FAIL"; exit 1; fi
+
+KEY IMPROVEMENTS OVER V1
+-------------------------
+✓ CVE validator bug fixed (4+ digits, no max)
+✓ Honest naming (content_length vs content_quality)
+✓ Enhanced validators (turn2/turn4 checks)
+✓ Flexible metadata formats (root + nested)
+✓ Structured results (JSON serializable)
+✓ CLI with --strict, --report, --quiet
+
+SUPPORTED LANGUAGES
+-------------------
+python, javascript, java, php, csharp, c#, ruby, go, typescript,
+rust, kotlin, yaml, c, c++, cpp, swift, bash, shell, sql
+
+VALID SEVERITIES
+----------------
+CRITICAL, HIGH, MEDIUM, LOW
+
+VALID OWASP CATEGORIES
+----------------------
+A01:2021-Broken Access Control
+A02:2021-Cryptographic Failures
+A03:2021-Injection
+A04:2021-Insecure Design
+A05:2021-Security Misconfiguration
+A06:2021-Vulnerable and Outdated Components
+A07:2021-Identification and Authentication Failures
+A08:2021-Software and Data Integrity Failures
+A09:2021-Security Logging and Monitoring Failures
+A10:2021-Server-Side Request Forgery (SSRF)
+A10:2021-Server-Side Request Forgery
+AI/ML Security Threats
+Unknown
+
+CVE FORMAT RULES
+----------------
+VALID:
+  null                      (no CVE assigned)
+  CVE-1999-1000             (minimum: 1999, 4 digits)
+  CVE-2024-1234             (standard)
+  CVE-2024-1000000          (7-digit high-volume)
+  CVE-2026-5678             (next year allowed)
+
+INVALID:
+  ""                        (use null instead)
+  CVE-2024-123              (only 3 digits)
+  CVE-1998-1234             (before 1999)
+  CVE-2030-1234             (too far future)
+  cve-2024-1234             (lowercase)
+
+DOCUMENTATION
+-------------
+VALIDATOR_V2_README.md          Comprehensive user guide (400+ lines)
+VALIDATOR_V2_PAPER_UPDATES.md   Paper update requirements (300+ lines)
+VALIDATOR_V2_SUMMARY.md         Delivery summary and status
+VALIDATOR_V2_QUICK_REFERENCE.txt This file
+
+CONTACT
+-------
+Scott Thornton (scott@perfecxion.ai)
+
+VERSION
+-------
+2.0 (2025-12-15) - Production Ready ✅
+================================================================================

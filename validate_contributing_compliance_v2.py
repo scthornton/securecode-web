@@ -57,20 +57,17 @@ SUPPORTED_LANGUAGES = {
     'c', 'c++', 'cpp', 'swift', 'bash', 'shell', 'sql'
 }
 
-# Valid OWASP categories (2021 Top 10 + custom)
-# Accept both with and without abbreviations
+# Valid OWASP categories (2025 Top 10 + custom)
 VALID_OWASP_CATEGORIES = {
-    'A01:2021-Broken Access Control',
-    'A02:2021-Cryptographic Failures',
-    'A03:2021-Injection',
-    'A04:2021-Insecure Design',
-    'A05:2021-Security Misconfiguration',
-    'A06:2021-Vulnerable and Outdated Components',
-    'A07:2021-Identification and Authentication Failures',
-    'A08:2021-Software and Data Integrity Failures',
-    'A09:2021-Security Logging and Monitoring Failures',
-    'A10:2021-Server-Side Request Forgery (SSRF)',
-    'A10:2021-Server-Side Request Forgery',  # Accept without (SSRF)
+    'A01:2025-Broken Access Control',
+    'A02:2025-Security Misconfiguration',
+    'A03:2025-Software Supply Chain Failures',
+    'A04:2025-Cryptographic Failures',
+    'A05:2025-Injection',
+    'A06:2025-Insecure Design',
+    'A07:2025-Authentication Failures',
+    'A08:2025-Software and Data Integrity Failures',
+    'A09:2025-Security Logging and Monitoring Failures',
     'AI/ML Security Threats',  # Custom category for AI security
     'Unknown'  # For edge cases
 }
@@ -358,7 +355,7 @@ def validate_metadata(example: Dict[str, Any]) -> ValidationReport:
     - New format: fields in 'metadata' and 'context' objects
 
     Required fields:
-    - owasp_category (or metadata.owasp_2021 or context.owasp_category)
+    - owasp_category (or metadata.owasp_2025 or context.owasp_category)
     - cve_id (or context.cve)
     - severity (or metadata.severity)
     - language (or metadata.lang)
@@ -391,7 +388,7 @@ def validate_metadata(example: Dict[str, Any]) -> ValidationReport:
     # OWASP category
     owasp = get_field([
         ('owasp_category',),
-        ('metadata', 'owasp_2021'),
+        ('metadata', 'owasp_2025'),
         ('context', 'owasp_category')
     ])
     if owasp is None:

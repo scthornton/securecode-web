@@ -25,7 +25,7 @@ The rapid advancement of large language models (LLMs) has enabled automated code
 
 We present **OWASP-CVE-Dialogues**, an enterprise-grade dataset of 1,209 security-focused coding examples designed specifically for training LLMs on secure development practices. Our dataset achieves 100% compliance with strict quality standards through systematic validation, ensuring every example includes: (1) real-world incident grounding with CVE references, (2) both vulnerable and secure implementations, (3) concrete attack demonstrations, and (4) defense-in-depth operational guidance.
 
-OWASP-CVE-Dialogues provides comprehensive coverage across 11 OWASP Top 10 2021 categories and 10 programming languages, with balanced severity distribution (66% CRITICAL, 32% HIGH, 2% MEDIUM). Each example follows a standardized 4-turn conversational structure that mirrors realistic developer-AI interactions. We empirically demonstrate that models fine-tuned on OWASP-CVE-Dialogues achieve 23.7% higher secure code generation rates and 31.2% better vulnerability detection compared to base models, while maintaining code functionality.
+OWASP-CVE-Dialogues provides comprehensive coverage across all 9 OWASP Top 10:2025 categories (A10:2021 SSRF merged into A01:2025) and 10 programming languages, with balanced severity distribution (66% CRITICAL, 32% HIGH, 2% MEDIUM). Each example follows a standardized 4-turn conversational structure that mirrors realistic developer-AI interactions. We empirically demonstrate that models fine-tuned on OWASP-CVE-Dialogues achieve 23.7% higher secure code generation rates and 31.2% better vulnerability detection compared to base models, while maintaining code functionality.
 
 Our contributions include: (1) a rigorously validated dataset with 100% quality compliance, (2) automated validation framework for ensuring dataset consistency, (3) empirical analysis of model performance improvements, and (4) open-source release of data and tooling to advance secure AI-assisted development.
 
@@ -57,7 +57,7 @@ Our contributions include: (1) a rigorously validated dataset with 100% quality 
 ### 1.3 Contributions
 
 1. **Dataset**: 1,209 rigorously validated secure coding examples
-   - 11 OWASP Top 10 2021 categories
+   - 9 OWASP Top 10:2025 categories (A10:2021 merged into A01:2025)
    - 10 programming languages
    - 100% quality compliance
 
@@ -172,8 +172,8 @@ Section 7: Conclusion
 
 ### 3.3 Taxonomy and Coverage
 
-**OWASP Top 10 2021 Coverage**:
-[Detailed breakdown by category with percentages]
+**OWASP Top 10:2025 Coverage**:
+[Detailed breakdown by category with percentages - 9 categories total, A10:2021 SSRF merged into A01:2025]
 
 **Language Distribution**:
 [Bar chart showing balanced multi-language coverage]
@@ -439,7 +439,7 @@ Our contributions advance the advanced in AI-assisted secure development by prov
 
 [2] Perry, N., et al. (2023). "Do Users Write More Insecure Code with AI Assistants?" ACM CCS.
 
-[3] OWASP Foundation. (2021). "OWASP Top 10 2021."
+[3] OWASP Foundation. (2025). "OWASP Top 10:2025 Release Candidate." Available: https://owasp.org/Top10/2025/
 
 [4] MITRE Corporation. (2025). "Common Weakness Enumeration (CWE)."
 

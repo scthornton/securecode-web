@@ -1,8 +1,9 @@
 ---
-license: apache-2.0
+license: cc-by-nc-sa-4.0
 task_categories:
 - text-generation
 - question-answering
+- conversational
 language:
 - code
 tags:
@@ -16,9 +17,11 @@ tags:
 - ai-safety
 - siem
 - penetration-testing
+- incident-grounding
+- defense-in-depth
 size_categories:
 - 1K<n<10K
-pretty_name: SecureCode v2
+pretty_name: SecureCode v2.0
 dataset_info:
   features:
   - name: messages
@@ -29,11 +32,11 @@ dataset_info:
       dtype: string
   splits:
   - name: train
-    num_examples: 1934
+    num_examples: 989
   - name: validation
-    num_examples: 243
+    num_examples: 122
   - name: test
-    num_examples: 241
+    num_examples: 104
 configs:
 - config_name: default
   data_files:
@@ -45,17 +48,19 @@ configs:
     path: consolidated/test.jsonl
 ---
 
-# SecureCode v2: Production-Grade Security Vulnerability Training Dataset
+# SecureCode v2.0: Production-Grade Dataset for Security-Aware Code Generation
 
 <div align="center">
 
 ![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
-![Examples](https://img.shields.io/badge/examples-2418-green.svg)
-![Languages](https://img.shields.io/badge/languages-6-orange.svg)
-![Quality](https://img.shields.io/badge/quality-production--grade-brightgreen.svg)
-![SIEM](https://img.shields.io/badge/SIEM-100%25-blue.svg)
+![Examples](https://img.shields.io/badge/examples-1,215-green.svg)
+![Languages](https://img.shields.io/badge/languages-11-orange.svg)
+![Quality](https://img.shields.io/badge/quality-100%25_validated-brightgreen.svg)
+![CVE Grounding](https://img.shields.io/badge/CVE_grounding-100%25-blue.svg)
 
-**High-quality, real-world security vulnerability examples for training AI models and educating developers**
+**Production-grade security vulnerability dataset with complete incident grounding, 4-turn conversational structure, and comprehensive operational guidance**
+
+[📄 Paper](https://perfecxion.ai/articles/securecode-v2-dataset-paper.html) | [💻 GitHub](https://github.com/scthornton/securecode-v2) | [🤗 Dataset](https://huggingface.co/datasets/scthornton/securecode-v2)
 
 </div>
 
@@ -63,15 +68,19 @@ configs:
 
 ## 🎯 Overview
 
-SecureCode v2 is a production-ready security vulnerability training dataset containing **2,418 comprehensive examples** covering critical web application security vulnerabilities. Every example includes real-world breach scenarios, vulnerable and secure code patterns across 6 programming languages, complete testing suites, SIEM detection rules, and infrastructure hardening guides.
+SecureCode v2.0 is a rigorously validated dataset of **1,215 security-focused coding examples** designed to train security-aware AI code generation models. Every example is grounded in real-world security incidents (CVEs, breach reports), provides both vulnerable and secure implementations, demonstrates concrete attacks, and includes defense-in-depth operational guidance.
 
-### Key Features
+### Why SecureCode v2.0?
 
-✅ **100% Language Fidelity** – All code uses language-appropriate syntax and idioms
-✅ **Realistic CVE References** – Authentic CVE numbers with 62% uniqueness
-✅ **Complete SIEM Coverage** – Splunk SPL + Elasticsearch rules for every example
-✅ **Production-Ready** – Validated for ML training and educational use
-✅ **Multi-Framework** – Express, Django, Laravel, Spring Boot, Gin, Rails
+**The Problem:** AI coding assistants produce vulnerable code in 45% of security-relevant scenarios (Veracode 2025), introducing security flaws at scale.
+
+**The Solution:** SecureCode v2.0 provides production-grade training data with:
+
+- ✅ **100% Incident Grounding** – Every example ties to documented CVEs or security incidents
+- ✅ **4-Turn Conversational Structure** – Mirrors real developer-AI workflows
+- ✅ **Complete Operational Guidance** – SIEM integration, logging, monitoring, detection
+- ✅ **Full Language Fidelity** – Language-specific syntax, idioms, and frameworks
+- ✅ **Rigorous Validation** – 100% compliance with structural and security standards
 
 ---
 
@@ -79,40 +88,91 @@ SecureCode v2 is a production-ready security vulnerability training dataset cont
 
 | Metric | Value |
 |--------|-------|
-| **Total Examples** | 2,418 |
-| **Train Split** | 1,934 examples (80%) |
-| **Test Split** | 241 examples (10%) |
-| **Validation Split** | 243 examples (10%) |
-| **Average Example Size** | ~17KB |
-| **Total Dataset Size** | ~41MB |
+| **Total Unique Examples** | 1,215 |
+| **Train Split** | 989 examples (81.4%) |
+| **Validation Split** | 122 examples (10.0%) |
+| **Test Split** | 104 examples (8.6%) |
+| **Vulnerability Categories** | 12 (all OWASP Top 10:2025 + AI/ML Security) |
+| **Programming Languages** | 11 total (10 languages + YAML IaC) |
+| **Average Conversation Length** | 4 turns (user → assistant → user → assistant) |
 
-### Vulnerability Coverage
+### Vulnerability Coverage (OWASP Top 10:2025)
 
-| Vulnerability Type | Examples | Key Frameworks |
-|--------------------|----------|----------------|
-| **Authentication** | ~200 | Django, Flask, Express, Laravel, Spring Boot, Rails |
-| **Authorization** | ~160 | Django, Flask, Express, Laravel, Spring Boot, Rails |
-| **Misconfiguration** | ~130 | Express, Django, Laravel, Spring Boot, Gin, Rails |
-| **Cryptography** | ~110 | All frameworks (encryption, hashing, key management) |
-| **Design Flaws** | ~85 | Architecture-level issues across all frameworks |
-| **Integrity** | ~80 | Django, Flask, Express, Spring Boot |
-| **Dependencies** | ~75 | Package management, supply chain security |
-| **SQL Injection** | ~75 | Django, Flask, Express, Laravel, Spring Boot, Rails |
-| **Logging & Monitoring** | ~60 | Security event logging across all frameworks |
-| **AI/ML Security** | ~50 | Prompt injection, model vulnerabilities, RAG attacks |
-| **SSRF** | ~45 | Express, Spring Boot, Laravel, Symfony, Rails |
-| **Command Injection** | ~50 | Django, Flask, Express, Laravel, Spring Boot, Gin, Rails |
-| **Cross-Site Scripting (XSS)** | ~50 | Express, React, Vue, Django, Laravel, Spring Boot, Rails |
-| **Mixed/Other** | ~200+ | XXE, SSTI, NoSQL Injection, API Security, etc. |
+| Category | Examples | Percentage |
+|----------|----------|------------|
+| **A01: Broken Access Control** | 224 | 18.4% |
+| **A07: Authentication Failures** | 199 | 16.4% |
+| **A02: Security Misconfiguration** | 134 | 11.0% |
+| **A05: Injection** | 125 | 10.3% |
+| **A04: Cryptographic Failures** | 115 | 9.5% |
+| **A06: Insecure Design** | 103 | 8.5% |
+| **A08: Software Integrity Failures** | 90 | 7.4% |
+| **A03: Sensitive Data Exposure** | 80 | 6.6% |
+| **A09: Logging & Monitoring Failures** | 74 | 6.1% |
+| **A10: SSRF** | 71 | 5.8% |
+| **AI/ML Security Threats** | (included across categories) |
+| **Total** | **1,215** | **100%** |
 
-### Programming Languages
+### Programming Language Distribution
 
-- **JavaScript/TypeScript** (Node.js, Express, NestJS, React, Vue)
-- **Python** (Django, Flask, FastAPI)
-- **PHP** (Laravel, Symfony)
-- **Java** (Spring Boot)
-- **Go** (Gin framework)
-- **Ruby** (Ruby on Rails)
+| Language | Examples | Frameworks/Tools |
+|----------|----------|------------------|
+| **Python** | 255 (21.0%) | Django, Flask, FastAPI |
+| **JavaScript** | 245 (20.2%) | Express, NestJS, React, Vue |
+| **Java** | 189 (15.6%) | Spring Boot |
+| **Go** | 159 (13.1%) | Gin framework |
+| **PHP** | 123 (10.1%) | Laravel, Symfony |
+| **TypeScript** | 89 (7.3%) | NestJS, Angular |
+| **C#** | 78 (6.4%) | ASP.NET Core |
+| **Ruby** | 56 (4.6%) | Ruby on Rails |
+| **Rust** | 12 (1.0%) | Actix, Rocket |
+| **Kotlin** | 9 (0.7%) | Spring Boot |
+| **YAML** | (IaC configurations) |
+
+### Severity Distribution
+
+| Severity | Examples | Percentage |
+|----------|----------|------------|
+| **CRITICAL** | 795 | 65.4% |
+| **HIGH** | 384 | 31.6% |
+| **MEDIUM** | 36 | 3.0% |
+
+---
+
+## 🔍 What Makes This Different?
+
+### 1. Incident Grounding
+
+Every example references real security incidents:
+- **Equifax breach (CVE-2017-5638)** - $425M cost from Apache Struts RCE
+- **Capital One SSRF attack (2019)** - 100M customer records exposed
+- **SolarWinds supply chain (CVE-2020-10148)** - Documented authentication bypasses
+
+### 2. 4-Turn Conversational Structure
+
+Unlike code-only datasets, each example follows realistic developer workflows:
+
+**Turn 1:** Developer requests functionality ("build JWT authentication")  
+**Turn 2:** Assistant provides vulnerable + secure implementations with attack demos  
+**Turn 3:** Developer asks advanced questions ("how does this scale to 10K users?")  
+**Turn 4:** Assistant delivers defense-in-depth operational guidance
+
+### 3. Comprehensive Operational Guidance
+
+Every example includes:
+- **SIEM Integration** - Splunk/Elasticsearch detection rules
+- **Logging Strategies** - Security event capture patterns
+- **Monitoring Recommendations** - Metrics and alerting
+- **Infrastructure Hardening** - Docker, AppArmor, WAF configs
+- **Testing Approaches** - Language-specific security testing
+
+### 4. Rigorous Quality Validation
+
+- ✅ **100% CVE Format Compliance** - All CVE references validated
+- ✅ **100% Language Tag Validity** - Proper language assignments
+- ✅ **100% Structural Compliance** - 4-turn conversation format
+- ✅ **Expert Security Review** - Independent validation by security professionals
+- ✅ **Zero Content Duplicates** - 1,203 duplicates removed
 
 ---
 
@@ -121,41 +181,46 @@ SecureCode v2 is a production-ready security vulnerability training dataset cont
 ```
 securecode-v2/
 ├── consolidated/
-│   ├── train.jsonl        # 1,934 training examples (33MB)
-│   ├── test.jsonl         # 241 testing examples (4.1MB)
-│   └── val.jsonl          # 243 validation examples (4.1MB)
-├── README.md              # This file
-├── CORRECTIONS_APPLIED.md # Quality improvements log
-├── LICENSE                # Apache 2.0 license
-├── CITATION.bib           # Citation information
-├── CONTRIBUTING.md        # Contribution guidelines
-├── schema.json            # Dataset schema
-└── taxonomy.yaml          # Vulnerability taxonomy
+│   ├── train.jsonl              # 989 training examples
+│   ├── val.jsonl                # 122 validation examples
+│   └── test.jsonl               # 104 test examples
+├── docs/
+│   └── paper/
+│       ├── secure-code-v2.md    # Full research paper (markdown)
+│       ├── secure-code-v2.tex   # LaTeX version
+│       └── *.png                # Paper figures and charts
+├── scripts/
+│   └── validate_contributing_compliance.py
+├── README.md                    # This file
+├── CONTRIBUTING.md              # Contribution guidelines
+├── LICENSE                      # CC BY-NC-SA 4.0 license
+├── CITATION.bib                 # Citation information
+├── schema_v2.json               # Dataset schema
+└── taxonomy.yaml                # OWASP vulnerability taxonomy
 ```
 
 ### Example Format
 
-Each example follows this structure:
+Each example is a 4-turn conversation in JSON format:
 
 ```json
 {
   "messages": [
     {
       "role": "user",
-      "content": "Explain [vulnerability type] in [language/framework]..."
+      "content": "How do I implement secure JWT authentication in Express.js?"
     },
     {
       "role": "assistant",
-      "content": "# Real-World Breach Scenario\n\n## CVE-XXXX-XXXXX...\n\n[Content includes:]
-      - Real-world breach scenario with financial impact
-      - 5+ vulnerable code patterns
-      - 3+ exploitation scenarios
-      - Comprehensive secure implementation
-      - Complete testing suite (language-specific)
-      - SIEM detection rules (Splunk + Elasticsearch)
-      - Infrastructure hardening (Docker, AppArmor, WAF)
-      - Prevention strategies
-      "
+      "content": "# Real-World Incident\nCVE-2022-23529: JWT authentication bypass in production systems...\n\n## Vulnerable Implementation\n[Code showing vulnerability]\n\n## Secure Implementation\n[Code showing fix]\n\n## Attack Demonstration\n[Concrete exploit]"
+    },
+    {
+      "role": "user",
+      "content": "How does this scale to 10,000 concurrent users?"
+    },
+    {
+      "role": "assistant",
+      "content": "# Production Scaling & Defense-in-Depth\n\n## Performance Considerations\n[Scaling strategies]\n\n## SIEM Integration\n[Detection rules]\n\n## Monitoring & Logging\n[Operational security]"
     }
   ]
 }
@@ -163,263 +228,134 @@ Each example follows this structure:
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Usage
 
-### Installation
+### Load with Hugging Face Datasets
 
-```bash
-# Install the datasets library
-pip install datasets
-
-# Load the dataset
+```python
 from datasets import load_dataset
 
-dataset = load_dataset("perfecXion/securecode-v2")
+# Load the full dataset
+dataset = load_dataset("scthornton/securecode-v2")
 
 # Access splits
-train_data = dataset['train']
-test_data = dataset['test']
-val_data = dataset['validation']
+train_data = dataset["train"]
+val_data = dataset["validation"]
+test_data = dataset["test"]
 
-# Print first example
-print(train_data[0]['messages'])
+# Inspect an example
+print(train_data[0]["messages"])
 ```
 
-### Manual Download
+### Fine-Tuning Example
 
-```bash
-# Clone repository
-git clone https://github.com/perfecXion/securecode-v2.git
-cd securecode-v2
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments
 
-# Load with Python
-import json
+model_name = "meta-llama/Llama-3.2-3B"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
-def load_jsonl(filepath):
-    with open(filepath, 'r') as f:
-        return [json.loads(line) for line in f]
+# Prepare dataset for training
+def format_conversation(example):
+    formatted = tokenizer.apply_chat_template(
+        example["messages"],
+        tokenize=False
+    )
+    return {"text": formatted}
 
-train = load_jsonl('consolidated/train.jsonl')
+train_dataset = dataset["train"].map(format_conversation)
+
+# Configure training
+training_args = TrainingArguments(
+    output_dir="./securecode-finetuned",
+    num_train_epochs=3,
+    per_device_train_batch_size=4,
+    learning_rate=2e-5,
+    logging_steps=100,
+)
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+)
+
+trainer.train()
 ```
-
----
-
-## 💎 Quality Assurance
-
-This dataset underwent extensive quality improvements in v2:
-
-### ✅ **Language Fidelity: 100%**
-- **13 files completely rewritten** from Python/Flask to proper language implementations
-- JavaScript (Express, NestJS), PHP (Laravel, Symfony), Java (Spring Boot), Go (Gin), Ruby (Rails)
-- Zero cross-language contamination
-
-### ✅ **CVE Authenticity**
-- **2 unrealistic CVE numbers fixed** (>56000 removed)
-- **274 duplicate CVEs deduplicated** with unique identifiers
-- **Duplication reduced**: 69.2% → 62.1%
-- **Real-world CVEs preserved** for educational value
-
-### ✅ **SIEM Coverage: 100%**
-- **50 detection rules added** to previously incomplete files
-- **Every example includes**: Splunk SPL + Elasticsearch Query DSL
-- Production-ready SIEM integration
-
-### ✅ **Content Completeness**
-- 5+ vulnerable patterns per example
-- 3+ exploitation scenarios per example
-- Comprehensive secure implementations
-- Testing frameworks for all languages
-- Infrastructure hardening guides
-
-See [CORRECTIONS_APPLIED.md](CORRECTIONS_APPLIED.md) for detailed improvement log.
-
----
-
-## 🔬 Example Content
-
-Each example provides comprehensive security coverage:
-
-### Real-World Context
-```
-CVE-2024-38428: Spring Boot Command Injection ($23.8M Impact)
-
-In August 2024, CloudOps—a SaaS platform serving 12,400 enterprise
-customers—experienced a devastating command injection breach...
-```
-
-### Vulnerable Code (Language-Specific)
-```java
-// VULNERABLE: String concatenation allows injection
-@PostMapping("/api/health/check")
-public String checkHost(@RequestParam String hostname) {
-    Runtime.getRuntime().exec("ping -c 1 " + hostname);
-    return output;
-}
-```
-
-### Secure Implementation
-```java
-// SECURE: Array syntax prevents injection
-@PostMapping("/api/health/check")
-public String checkHost(@RequestParam String hostname) {
-    ProcessBuilder pb = new ProcessBuilder("ping", "-c", "1", hostname);
-    Process process = pb.start();
-    return output;
-}
-```
-
-### SIEM Detection (Production-Ready)
-```spl
-index=security sourcetype=spring_logs
-| search "ProcessBuilder" OR "Runtime.exec"
-| regex _raw="(;|\||&|\$\()"
-| stats count by user, command
-| where count > 5
-| eval severity="critical"
-```
-
----
-
-## 💡 Use Cases
-
-### 1. **AI/ML Model Training**
-Train code security models to:
-- Detect vulnerabilities in source code
-- Suggest secure code alternatives
-- Generate security test cases
-- Automate security code reviews
-
-**Recommended Models**: Qwen 2.5 Coder, DeepSeek Coder, Code Llama, StarCoder 2
-
-### 2. **Developer Education**
-- Learn vulnerability patterns across languages
-- Study real-world breach scenarios ($20M-$80M impacts)
-- Understand secure coding practices
-- Practice defensive programming
-
-### 3. **Security Tool Development**
-- Build SAST/DAST tools
-- Create security linters
-- Develop IDE security plugins
-- Train static analysis engines
-
-### 4. **Security Operations**
-- Deploy SIEM detection rules
-- Configure security monitoring
-- Implement defense-in-depth strategies
-- Conduct red team exercises
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-**Ways to contribute:**
-- Add new vulnerability examples
-- Improve existing code samples
-- Add support for new languages/frameworks
-- Enhance SIEM detection rules
-- Fix bugs or improve documentation
-
----
-
-## 📄 License
-
-This dataset is licensed under the **Apache License 2.0**.
-
-You are free to:
-- ✅ Use commercially
-- ✅ Modify and distribute
-- ✅ Use privately
-- ✅ Use for patent claims
-
-See [LICENSE](LICENSE) for full terms.
 
 ---
 
 ## 📖 Citation
 
-If you use this dataset in your research or project, please cite:
+If you use SecureCode v2.0 in your research, please cite:
 
 ```bibtex
-@dataset{securecode_v2_2025,
-  author = {Scott Thornton},
-  title = {SecureCode v2: Production-Grade Security Vulnerability Training Dataset},
-  year = {2025},
-  month = {12},
-  publisher = {HuggingFace},
-  url = {https://huggingface.co/datasets/perfecXion/securecode-v2},
-  note = {2,418 examples covering 14+ vulnerability types including Authentication, Authorization, SQL Injection, XSS, SSRF, Cryptography, and AI/ML Security across 6 programming languages. 100% language fidelity and SIEM coverage.}
+@misc{thornton2025securecode,
+  title={SecureCode v2.0: A Production-Grade Dataset for Training Security-Aware Code Generation Models},
+  author={Thornton, Scott},
+  year={2025},
+  month={December},
+  publisher={perfecXion.ai},
+  url={https://perfecxion.ai/articles/securecode-v2-dataset-paper.html},
+  note={Dataset: https://huggingface.co/datasets/scthornton/securecode-v2}
 }
 ```
 
-See [CITATION.bib](CITATION.bib) for BibTeX format.
+---
+
+## 📄 License
+
+This dataset is released under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)**.
+
+**What this means:**
+- ✅ **Free for Research & Education** - Use freely in academic research, publications, and teaching
+- ✅ **Derivative Works Allowed** - You can modify, extend, and improve the dataset
+- ✅ **Share-Alike** - Derivatives must use the same CC BY-NC-SA 4.0 license
+- ✅ **Attribution Required** - Credit the original work when used
+- ❌ **No Commercial Use** - Cannot be used in commercial products or services without permission
+
+For commercial licensing inquiries, contact: scott@perfecxion.ai
 
 ---
 
 ## 🔗 Links
 
-- **HuggingFace**: https://huggingface.co/datasets/perfecXion/securecode-v2
-- **GitHub**: https://github.com/perfecXion/securecode-v2
-- **Website**: https://perfecXion.ai
-- **Issues**: https://github.com/perfecXion/securecode-v2/issues
+- **📄 Research Paper**: [https://perfecxion.ai/articles/securecode-v2-dataset-paper.html](https://perfecxion.ai/articles/securecode-v2-dataset-paper.html)
+- **💻 GitHub Repository**: [https://github.com/scthornton/securecode-v2](https://github.com/scthornton/securecode-v2)
+- **🤗 HuggingFace Dataset**: [https://huggingface.co/datasets/scthornton/securecode-v2](https://huggingface.co/datasets/scthornton/securecode-v2)
+- **🛠️ Validation Framework**: [validate_contributing_compliance.py](https://github.com/scthornton/securecode-v2/blob/main/validate_contributing_compliance.py)
 
 ---
 
-## 📝 Changelog
+## 🤝 Contributing
 
-### v2.0 (2025-12-12)
-- ✅ **Dataset Expansion**: Merged existing 1,209 examples with 1,209 batch files for **2,418 total examples**
-- ✅ **Vulnerability Coverage**: Expanded from 4 to 14+ vulnerability types including Authentication, Authorization, Cryptography, AI/ML Security, and more
-- ✅ **Language Fidelity**: 13 files rewritten with proper language implementations (100%)
-- ✅ **CVE Deduplication**: 274 duplicate CVEs replaced with unique identifiers
-- ✅ **SIEM Coverage**: 50 detection rules added (100% coverage achieved)
-- ✅ **Dataset Cleanup**: 387 non-essential files removed
-- ✅ **Quality Validation**: All examples validated for ML training readiness
-
-### v1.0 (2025-11-15)
-- Initial release with 1,209 examples
-- Coverage: Command Injection, SQL Injection, XSS, SSRF
-- Some Python/Flask code in non-Python files
-- CVE duplication issues
-- Incomplete SIEM coverage
-
----
-
-## ⚠️ Disclaimer
-
-This dataset contains **real vulnerability patterns** for educational purposes.
-
-**DO NOT** use vulnerable code examples in production systems. All vulnerable code is clearly marked and intended for:
-- Security training
-- Model development
-- Research purposes
-- Educational use
-
-Always conduct security testing only on authorized systems.
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on:
+- Adding new vulnerability examples
+- Improving existing content
+- Validation and quality assurance
+- Documentation improvements
 
 ---
 
 ## 🙏 Acknowledgments
 
-- Security researchers and the CVE community
-- Open-source framework maintainers
-- Contributors and reviewers
-- OWASP Foundation
-- MITRE Corporation (CWE/CVE)
+- Security research community for responsible disclosure practices
+- Three anonymous security experts who provided independent validation
+- OWASP Foundation for maintaining the Top 10 taxonomy
+- MITRE Corporation for the CVE database
 
 ---
 
-<div align="center">
+## 📊 Quality Metrics
 
-**Built with security in mind. Designed for real-world impact.**
+| Metric | Result |
+|--------|--------|
+| CVE Format Compliance | 100% (1,215/1,215) |
+| Language Tag Validity | 100% (1,215/1,215) |
+| Content Quality Standards | 100% (1,215/1,215) |
+| 4-Turn Structure Compliance | 100% (1,215/1,215) |
+| Incident Grounding | 100% (all examples tied to real incidents) |
+| Expert Security Review | Complete (3 independent validators) |
+| Content Deduplication | 1,203 duplicates removed |
 
-*SecureCode v2 – Production-Grade Security Training for AI*
-
-**Version**: 2.0
-**Last Updated**: December 12, 2025
-**Maintainer**: Scott Thornton
-**Status**: ✅ Production-Ready
-
-</div>

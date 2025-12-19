@@ -5,6 +5,19 @@
 
 ---
 
+## OWASP Taxonomy Update Note
+
+**IMPORTANT**: This review was conducted using OWASP Top 10:2021 taxonomy. Subsequent updates (December 2025) aligned the dataset and all documentation with **OWASP Top 10:2025 Release Candidate** (released November 2025). Key changes include:
+
+- A10:2021 SSRF merged into A01:2025 Broken Access Control
+- A06:2021 renamed to A03:2025 Software Supply Chain Failures (expanded scope)
+- Category renumbering: A02→A04, A03→A05, A04→A06, A05→A02
+- Name updates: A07, A08, A09 (simplified naming)
+
+See `OWASP_2021_vs_2025_Comparison.md` for complete migration details.
+
+---
+
 ## Executive Summary
 
 This document tracks the fourth round of critical fixes addressing factual accuracy, internal consistency, and terminology standardization. All 18 fixes have been successfully applied and verified.
@@ -204,13 +217,14 @@ Added clarifying breakdown showing how the two schemes cross-cut:
 
 ---
 
-### Fix #15: OWASP A07 Naming Corrected ✅
-**Problem**: OWASP A07:2021 not using official name "Identification and Authentication Failures".
+### Fix #15: OWASP A07 Naming Updated to 2025 ✅
+**Problem**: OWASP A07:2021 "Identification and Authentication Failures" needed update to OWASP Top 10:2025 Release Candidate taxonomy.
 
 **Fix Applied**:
-- **Line 62**: Changed to "A07:2021 Identification and Authentication Failures"
+- **Line 62**: Changed to "A07:2025 Authentication Failures" (updated from A07:2021)
+- **Note**: Subsequent migration aligned dataset with OWASP Top 10:2025 Release Candidate (November 2025). A07 category name simplified from "Identification and Authentication Failures" to "Authentication Failures" while maintaining same CWE mappings.
 
-**Impact**: Official OWASP category naming.
+**Impact**: Updated to current OWASP 2025 taxonomy.
 
 ---
 

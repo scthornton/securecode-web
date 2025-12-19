@@ -16,7 +16,7 @@ from pathlib import Path
 from collections import Counter
 from typing import Dict, List, Tuple
 
-# Expected post-migration distribution (from analysis)
+# Expected post-migration distribution (from actual dataset analysis)
 EXPECTED_DISTRIBUTION = {
     "A01:2025-Broken Access Control": 224,
     "A02:2025-Security Misconfiguration": 134,
@@ -24,7 +24,7 @@ EXPECTED_DISTRIBUTION = {
     "A04:2025-Cryptographic Failures": 115,
     "A05:2025-Injection": 125,
     "A06:2025-Insecure Design": 84,
-    "A07:2025-Identification and Authentication Failures": 199,
+    "A07:2025-Authentication Failures": 199,
     "A08:2025-Software and Data Integrity Failures": 80,
     "A09:2025-Security Logging and Monitoring Failures": 59,
     "AI/ML Security Threats": 50,
@@ -94,8 +94,8 @@ def validate_file_structure(filepath: Path, results: ValidationResults) -> Dict:
     """Validate file exists and has correct structure"""
     stats = {
         "entries": 0,
-        "has_owasp_2021": 0,
-        "has_owasp_2025": 0,
+        "has_owasp_2021": 0,  # Should be 0 after migration
+        "has_owasp_2025": 0,  # Should equal entries after migration
         "categories": Counter(),
     }
 

@@ -12,7 +12,9 @@ Your LaTeX paper now includes all 5 figures with proper captions:
 
 ## Upload Package
 
-**Location**: `/Users/scott/perfecxion/datasets/securecode/v2/docs/paper/securecode-v2-arxiv-package.tar.gz`
+**Location**:
+- ZIP: `/Users/scott/perfecxion/datasets/securecode/v2/docs/paper/securecode-v2-arxiv-package.zip` (16 MB)
+- TAR.GZ: `/Users/scott/perfecxion/datasets/securecode/v2/docs/paper/securecode-v2-arxiv-package.tar.gz` (16 MB)
 
 **Contents**:
 - `secure-code-v2.tex` (main LaTeX file with all figures)
@@ -30,7 +32,7 @@ Your LaTeX paper now includes all 5 figures with proper captions:
 
 1. Go to [Overleaf](https://www.overleaf.com)
 2. Click "New Project" → "Upload Project"
-3. Upload `securecode-v2-arxiv-package.tar.gz`
+3. Upload `securecode-v2-arxiv-package.zip` (or `.tar.gz`)
 4. Overleaf will automatically extract all files
 5. Set `secure-code-v2.tex` as the main document
 6. Compile with pdfLaTeX or XeLaTeX
@@ -47,9 +49,11 @@ Your LaTeX paper now includes all 5 figures with proper captions:
 
 ### Prepare Your Submission
 
-1. **Extract the package**:
+1. **Extract the package** (if needed):
    ```bash
    cd /Users/scott/perfecxion/datasets/securecode/v2/docs/paper
+   unzip securecode-v2-arxiv-package.zip
+   # OR
    tar -xzf securecode-v2-arxiv-package.tar.gz
    ```
 
@@ -72,7 +76,7 @@ Your LaTeX paper now includes all 5 figures with proper captions:
 
 5. **Upload Files**:
    - Select "Upload Files" tab
-   - Upload the `.tar.gz` package OR upload individual files:
+   - Upload the `.zip` or `.tar.gz` package OR upload individual files:
      - `secure-code-v2.tex`
      - All 5 PNG files
    - arXiv will automatically detect the main `.tex` file

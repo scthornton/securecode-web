@@ -3,7 +3,6 @@ license: cc-by-nc-sa-4.0
 task_categories:
 - text-generation
 - question-answering
-- conversational
 language:
 - code
 tags:

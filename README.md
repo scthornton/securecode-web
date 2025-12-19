@@ -52,7 +52,7 @@ configs:
 
 <div align="center">
 
-![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
+![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-blue.svg)
 ![Examples](https://img.shields.io/badge/examples-1,215-green.svg)
 ![Languages](https://img.shields.io/badge/languages-11-orange.svg)
 ![Quality](https://img.shields.io/badge/quality-100%25_validated-brightgreen.svg)

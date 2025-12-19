@@ -1,5 +1,5 @@
 ---
-license: apache-2.0
+license: cc-by-nc-sa-4.0
 task_categories:
 - text-generation
 - question-answering
@@ -193,7 +193,7 @@ securecode-v2/
 │   └── validate_contributing_compliance.py
 ├── README.md                    # This file
 ├── CONTRIBUTING.md              # Contribution guidelines
-├── LICENSE                      # Apache 2.0 license
+├── LICENSE                      # CC BY-NC-SA 4.0 license
 ├── CITATION.bib                 # Citation information
 ├── schema_v2.json               # Dataset schema
 └── taxonomy.yaml                # OWASP vulnerability taxonomy
@@ -306,7 +306,16 @@ If you use SecureCode v2.0 in your research, please cite:
 
 ## 📄 License
 
-This dataset is released under the **Apache 2.0 License**, allowing unrestricted research and commercial use.
+This dataset is released under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)**.
+
+**What this means:**
+- ✅ **Free for Research & Education** - Use freely in academic research, publications, and teaching
+- ✅ **Derivative Works Allowed** - You can modify, extend, and improve the dataset
+- ✅ **Share-Alike** - Derivatives must use the same CC BY-NC-SA 4.0 license
+- ✅ **Attribution Required** - Credit the original work when used
+- ❌ **No Commercial Use** - Cannot be used in commercial products or services without permission
+
+For commercial licensing inquiries, contact: scott@perfecxion.ai
 
 ---
 

@@ -104,7 +104,7 @@ SecureCode v2.0 provides comprehensive operational security guidance embedded in
 The dataset maintains complete language fidelity with all code examples using proper language-specific syntax, idioms, and frameworks. JavaScript examples use Express/NestJS, PHP uses Laravel/Symfony, Java uses Spring Boot, Go uses Gin, Ruby uses Rails, and C# uses ASP.NET Core. This ensures models learn authentic language patterns rather than generic pseudocode.
 
 **6. Open-Source Release**
-We release SecureCode v2.0, the validation framework, fine-tuning protocols, and evaluation benchmarks as open-source artifacts under Apache 2.0 license. Researchers can reproduce results, extend the methodology, or use the dataset as a foundation for domain-specific security training. Practitioners can fine-tune enterprise AI coding assistants on incident-grounded secure coding examples. Educators can use real-world security incidents as teaching material.
+We release SecureCode v2.0, the validation framework, fine-tuning protocols, and evaluation benchmarks as open-source artifacts under **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)**. Researchers can reproduce results, extend the methodology, or use the dataset as a foundation for domain-specific security training. Educators can use real-world security incidents as teaching material. Commercial use requires separate licensing.
 
 ### 1.5 Dataset Overview
 
@@ -883,11 +883,13 @@ Production-grade datasets require rigorous safety controls to prevent misuse and
 
 **Licensing and Access**
 
-SecureCode v2.0 is released under **Apache 2.0 license** for unrestricted research and commercial use. This permissive licensing enables:
+SecureCode v2.0 is released under **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)** for research and educational use. This license enables:
 - Academic research without institutional approval barriers
-- Enterprise fine-tuning for internal AI coding assistants
-- Commercial product development without royalty obligations
-- Derivative dataset creation with proper attribution
+- Educational use in universities and training programs
+- Non-commercial research and development
+- Derivative dataset creation with proper attribution (derivatives must use same license)
+
+Commercial use requires separate licensing. Contact: scott@perfecxion.ai
 
 The dataset is publicly available on HuggingFace, GitHub, and arXiv with no access restrictions beyond standard download agreements.
 
@@ -1315,7 +1317,7 @@ The future of software development involves AI coding assistants generating bill
 
 **Documentation:** Technical Report: `https://perfecxion.ai/articles/securecode-v2-dataset-paper.html`
 
-All artifacts released under Apache 2.0 license for unrestricted research and commercial use.
+All artifacts released under **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)** for research and educational use. Commercial use requires separate licensing.
 
 ---
 

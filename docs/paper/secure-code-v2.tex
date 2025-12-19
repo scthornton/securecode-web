@@ -92,11 +92,25 @@ We developed SecureCode v2.0 to address these limitations systematically through
 
 This structure captures how security knowledge transfers during actual development workflows. Developers do not request ``secure and insecure authentication'' in abstract terms. They request authentication solving specific problems, then iterate toward production-ready security through follow-up questions. The conversational format trains models on realistic interaction patterns.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{secure-code-2-image2.png}
+\caption{Four-Turn Conversational Example Format. The 4-turn structure mirrors realistic developer-AI workflows. Turn 1 captures problem-oriented feature requests. Turn 2 provides dual implementations (vulnerable + secure) with concrete attack demonstrations. Turn 3 escalates to advanced scenarios (scale, performance) forcing security context retention. Turn 4 delivers operational security guidance including SIEM detection strategies and infrastructure hardening.}
+\label{fig:conversation}
+\end{figure}
+
 \textbf{Production quality through systematic validation.} We developed an automated validation framework enforcing structural quality standards: 4-turn conversation structure compliance, proper CVE formatting (CVE-YYYY-NNNNN or explicit null), valid programming language tags, minimum content length requirements, and security control completeness. The compliance journey progressed from 47.2\% (397 of 841 training examples passing all validation checks) to full compliance through systematic remediation across five fix categories.
 
 We addressed 452 CVE format issues where examples referenced security incidents without proper CVE-YYYY-NNNNN formatting. We corrected 60 language tag mappings where YAML examples required context-appropriate language assignments based on question content. We enhanced 86 examples with additional defense-in-depth guidance. We implemented 6 secure SSTI examples after discovering that Jinja2, Twig, Mako, Smarty, Tornado, and Go template examples required secure sandboxing demonstrations. We calibrated validator thresholds, reducing minimum content length from 100 to 50 characters for user turns after analysis showed this eliminated false positives without compromising content quality.
 
 \textbf{Comprehensive security coverage.} SecureCode v2.0 spans \textbf{12 vulnerability categories} across \textbf{11 languages total} (10 programming languages: Python, JavaScript, Java, Go, PHP, C\#, TypeScript, Ruby, Rust, Kotlin + YAML for infrastructure-as-code), providing comprehensive coverage of the complete OWASP Top 10:2025.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{secure-code-2-image3.png}
+\caption{SecureCode v2.0 Coverage Snapshot. Comprehensive coverage across three dimensions: \textbf{Vulnerability Categories} (left) with Broken Access Control (224 examples) and Authentication Failures (199 examples) receiving highest coverage; \textbf{Language Distribution} (center) with Python (21.0\%) and JavaScript (20.2\%) leading; \textbf{Severity Mix} (right) with 65.4\% CRITICAL severity; \textbf{Dataset Splits} (bottom) showing 989 train / 122 validation / 104 test examples.}
+\label{fig:coverage}
+\end{figure}
 
 \subsection{Contributions}
 
@@ -134,6 +148,13 @@ The security research community has produced several datasets for studying vulne
 
 \textbf{Draper VDISC} provides 1.27 million C examples with unknown incident grounding \cite{vdisc}. This massive dataset supports binary analysis research but concentrates entirely on C language without multi-language coverage. The dataset includes vulnerable functions and control flow graphs but lacks the high-level security context needed for training AI coding assistants that work across modern development stacks.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{chart2_dataset_comparison.png}
+\caption{Dataset Comparison - SecureCode v2.0 vs. Related Work. Comprehensive comparison across four critical dimensions: \textbf{Dataset Size} (blue) shows SecureCode v2.0 (1.2K) prioritizes quality over quantity compared to Juliet ($\sim$81K-86K) and SARD ($\sim$170K-200K); \textbf{Languages} (pink) shows SecureCode v2.0 covers 11 languages (most comprehensive); \textbf{Incident Grounding} (orange) shows SecureCode v2.0 achieves 100\% real-world grounding versus 18\% for CWE-Sans and 0\% for synthetic datasets; \textbf{Conversational Format} (green) shows SecureCode v2.0 is the only dataset using conversational structure (100\%).}
+\label{fig:comparison}
+\end{figure}
+
 \subsection{AI Code Generation Security Research}
 
 Recent empirical studies demonstrate that AI coding assistants systematically produce insecure code, but no training datasets address the identified vulnerabilities.
@@ -166,6 +187,13 @@ We collected SecureCode v2.0 through a three-phase methodology ensuring incident
 
 \textbf{Important Clarification on Code Authenticity:} While every example in SecureCode v2.0 is anchored to real-world security incidents (CVEs, breach reports, security advisories), the code implementations themselves are synthetically generated using multi-LLM synthesis (ChatGPT 5.1, Claude Sonnet 4.5, Llama 3.2) with human expert review. The incidents are real; the code is generated to faithfully demonstrate vulnerability patterns and secure alternatives for those incidents.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{secure-code-2-image1.png}
+\caption{SecureCode v2.0 Dataset Construction Pipeline. Five-stage pipeline showing progression from 2,847 incident candidates to 1,215 final examples. Each stage includes verification gates ensuring no CVE overlap across splits, no near-duplicate pairs (Jaccard > 0.8), and preserved split group integrity. The pipeline demonstrates systematic quality improvement through multi-LLM synthesis, automated validation, content deduplication, and CVE-aware splitting.}
+\label{fig:pipeline}
+\end{figure}
+
 \section{Quality Assurance and Validation}
 
 \subsection{Validation Framework}
@@ -175,6 +203,13 @@ We developed \texttt{validate\_contributing\_compliance.py}, an automated valida
 \subsection{Compliance Journey: 47.2\% to 100\%}
 
 Initial validation on an 841-example development subset revealed 47.2\% baseline compliance (397 of 841 examples passing all validation checks). We implemented systematic remediation across five fix categories.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{chart1_compliance_progress.png}
+\caption{Weekly Compliance Progress. Six-week compliance improvement trajectory showing compliance rate increasing from 47.2\% baseline to 100\%. The blue line tracks compliance rate while pink bars show number of fixes applied each week (679 total: 312+194+86+54+24+9). Week 1 required the most remediation (312 CVE format fixes), with subsequent weeks addressing progressively fewer issues as systematic patterns were identified and applied.}
+\label{fig:compliance}
+\end{figure}
 
 \section{Dataset Quality Assessment}
 

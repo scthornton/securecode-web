@@ -91,7 +91,7 @@ SecureCode v2.0 is a rigorously validated dataset of **1,215 security-focused co
 | **Train Split** | 989 examples (81.4%) |
 | **Validation Split** | 122 examples (10.0%) |
 | **Test Split** | 104 examples (8.6%) |
-| **Vulnerability Categories** | 12 (all OWASP Top 10:2025 + AI/ML Security) |
+| **Vulnerability Categories** | 11 (complete OWASP Top 10:2025 + AI/ML Security) |
 | **Programming Languages** | 11 total (10 languages + YAML IaC) |
 | **Average Conversation Length** | 4 turns (user → assistant → user → assistant) |
 

@@ -90,3 +90,14 @@ node_modules/
 !automation/logs/.gitkeep
 !docs/archive/.gitkeep
 !docs/reports/.gitkeep
+
+# AI tool artifacts
+.claude/
+CLAUDE.md
+claude.md
+planning.md
+status.md
+notes.md
+todo.md
+*.chat
+*.conversation
